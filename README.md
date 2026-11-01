@@ -7,14 +7,14 @@ Round 1 (one naming pass over every function):
 
 | Program | Functions | Named | Provisional |
 |---|---|---|---|
-| SLPS_034.32 | 1,996 | 1,996 | 269 |
+| SLPS_034.32 | 1,996 | 1,996 | 6 |
 | O_MINI | 104 | 104 | 1 |
 | O_STORY | 85 | 85 | 0 |
 | O_TRAIN | 89 | 89 | 0 |
 | O_OPTION | 40 | 40 | 0 |
 | O_MOVIE | 25 | 25 | 0 |
 
-0 `FUN_` placeholders left. Names marked `provisional` in the comment are best guesses for a later review round.
+0 `FUN_` placeholders left. Round 2 (11-01): 293 provisional names reviewed by 3 agents with callers/callees context: 231 confirmed, 56 renamed, 6 still `provisional`.
 
 Game: 3D arena fighter where shamans fight with a guardian spirit (over soul, furyoku spirit meter).
 Subsystems named so far: fighters and character state machines (`fighter_`, `fgt_`, `char_`/`chr_`), spirits
@@ -39,6 +39,7 @@ no Ghidra database. You need your own copy of the game to use any of this.
 | `ghidra/hand_<prog>.txt` | hand names: `0x<addr> func <name> hand <comment>` (apply with ApplyNames.java from the Scorcher / AMOK repos, hand mode) |
 | `ghidra/funcinfo_<prog>.tsv` | per-function export: `F` address name source size, `C` callees (string rows removed) |
 | `ghidra/naming/prompt_SK.txt` | the round-1 naming prompt |
+| `ghidra/review/` | round-2 review prompt + verdict lines (`SK 0x<addr> <old> CONFIRM|RENAME|UNSURE <new> <reason>`) |
 | `ghidra/scripts/` | `SeedMipsFunctionsAt.java` (prologue seeding from the program's lowest address), `CsDumpAll.java` (decompile dump) |
 | `tools/` | `psxrules.py`, `injecthints.py`, `trimdump.py`, `slice.py`, `mergehand.py`, `pubfuncinfo.py` |
 

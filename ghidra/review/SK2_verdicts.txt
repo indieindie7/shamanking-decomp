@@ -1,0 +1,98 @@
+SK 0x8003df04 fgt_WinPoseTwoAnim CONFIRM fgt_WinPoseTwoAnim two-anim win pose update: anim 0x72 frame 0x41 sets flag, 0x73 end marks done
+SK 0x8003dfb8 fgt_WaitAnimMarkDoneFlag RENAME fgt_WinPoseWaitDone only caller is win pose setup; marks done bit on anim end
+SK 0x8003e034 fgt_BeginLosePose CONFIRM fgt_BeginLosePose caller is round-end pose; picks lose anim and state by character
+SK 0x8003e190 fgt_LosePoseWaitDone CONFIRM fgt_LosePoseWaitDone lose-pose state; sets done bit when anim ends
+SK 0x8003e1e4 fgt_LosePoseAnimNext CONFIRM fgt_LosePoseAnimNext lose-pose chain; plays next anim at end
+SK 0x8003e22c fgt_LosePoseSetHoldTimer CONFIRM fgt_LosePoseSetHoldTimer sets hold timer then hold state
+SK 0x8003e278 fgt_LosePoseHoldTimer CONFIRM fgt_LosePoseHoldTimer counts timer down then plays final anim
+SK 0x8003e2d4 fgt_LosePoseFinish CONFIRM fgt_LosePoseFinish sets done bit and flag at end of lose pose
+SK 0x8003e33c fgt_BeginMoveToTargetB_entry CONFIRM fgt_BeginMoveToTargetB_entry 8-byte entry stub into BeginMoveToTargetB
+SK 0x8003e344 fgt_BeginMoveToTargetB CONFIRM fgt_BeginMoveToTargetB computes per-frame velocity toward target over 17 frames
+SK 0x8003e480 fgt_MoveToTargetStepB CONFIRM fgt_MoveToTargetStepB steps gravity/move then snaps and faces opponent
+SK 0x8003e628 fgt_MoveToTargetFollow CONFIRM fgt_MoveToTargetFollow keeps snapping to target position each frame
+SK 0x8003e6e4 fgt_WaitAnimSetFlag2000 CONFIRM fgt_WaitAnimSetFlag2000 sets flag on anim end
+SK 0x8003e728 fgt_TwoAnimSequence33_74 CONFIRM fgt_TwoAnimSequence33_74 sequences anims 0x74 then 0x33 with flag and done bit
+SK 0x8003e7e4 math_LerpCharRange CONFIRM math_LerpCharRange lerp between two per-character table values scaled by p1/p2
+SK 0x8003e848 ai_PickTauntInput RENAME ai_CalcSpecialInputWindow returns frame count from health bands and difficulty; caller uses it as countdown and meter gain scale, not a pad word
+SK 0x8003eaa8 ai_PickPadInputByHealth CONFIRM ai_PickPadInputByHealth health/meter band picks random pad word from table
+SK 0x8003ec24 ai_RollThreshold CONFIRM ai_RollThreshold returns index if table threshold above roll else 0
+SK 0x8003ec68 ai_PickPadInput CONFIRM ai_PickPadInput situational roll picks pad word table entry
+SK 0x8003f0dc spirit_InitTask CONFIRM spirit_InitTask registers spirit task, picks state by spirit type
+SK 0x8003f2e0 spirit_InitTaskB CONFIRM spirit_InitTaskB second-slot spirit init
+SK 0x8003f418 spirit_UpdateTask CONFIRM spirit_UpdateTask per-frame runs state fn and anim update
+SK 0x8003f6e0 spirit_BeginFollow_entry CONFIRM spirit_BeginFollow_entry 8-byte entry into BeginFollow
+SK 0x8003f6e8 spirit_BeginFollow CONFIRM spirit_BeginFollow snaps to owner xy, anim 0x76, enters follow-face state
+SK 0x8003f748 spirit_FollowFaceOwner CONFIRM spirit_FollowFaceOwner faces owner then selects follow anim
+SK 0x8003f804 spirit_FollowSelectAnim CONFIRM spirit_FollowSelectAnim maps owner anim to spirit anim
+SK 0x8003fb2c spirit_FollowSelectAnimType8 CONFIRM spirit_FollowSelectAnimType8 type 8 variant with x offset from owner
+SK 0x8003fcc8 spirit_BeginWander CONFIRM spirit_BeginWander random orbit params then wander step
+SK 0x8003fd88 spirit_WanderStep CONFIRM spirit_WanderStep faces owner, matches anim and orbits unless hitstop
+SK 0x8003fe40 spirit_MatchOwnerAnim CONFIRM spirit_MatchOwnerAnim maps owner anim id to spirit anim id
+SK 0x80040010 spirit_OrbitOwnerStep CONFIRM spirit_OrbitOwnerStep sin/cos orbit around owner with easing
+SK 0x80040470 spirit_InitMultiEffectTask CONFIRM spirit_InitMultiEffectTask spawns 9 delayed effect objects then hides
+SK 0x8004053c spirit_SetIdleHidden CONFIRM spirit_SetIdleHidden sets hidden flag each frame
+SK 0x80040594 spirit_BeginSummonAnim CONFIRM spirit_BeginSummonAnim clears velocity, anim 0, enters summon follow
+SK 0x80040624 spirit_SummonFollowOwner CONFIRM spirit_SummonFollowOwner follows owner during owner anims 0x15-0x17 else hides
+SK 0x80040724 fgt_InitFighterTaskB CONFIRM fgt_InitFighterTaskB places fighter at slot x, picks intro or idle state
+SK 0x80040810 spirit_FollowOwnerAbove CONFIRM spirit_FollowOwnerAbove copies owner facing and pos, y+0x800
+SK 0x800408ac spirit_SelectAnimFromOwner CONFIRM spirit_SelectAnimFromOwner maps owner anim id to spirit anim 0/0xf and plays it
+SK 0x80040a5c spirit_SnapToOwner CONFIRM spirit_SnapToOwner copies owner xy, zeroes velocity, back to follow-above
+SK 0x80040ae0 spirit_CheckOwnerFlag1000 CONFIRM spirit_CheckOwnerFlag1000 returns owner flag 0x1000, switches to snap state; used by many victim-follow states
+SK 0x80040b8c hit_TestBoxByMode CONFIRM hit_TestBoxByMode all 8 pattern wrappers pass a mode table; mode picks box overlap test
+SK 0x80040f50 fgt_InitFighterTask CONFIRM fgt_InitFighterTask per-slot fighter init, start x, round intro or idle state
+SK 0x800412f4 fgt_StartRoundIntro_entry CONFIRM fgt_StartRoundIntro_entry 8-byte entry into StartRoundIntro
+SK 0x800412fc fgt_StartRoundIntro CONFIRM fgt_StartRoundIntro sets facing of fighter and spirits, spirit intro anims by character
+SK 0x80041620 fgt_IntroWaitPadChoice RENAME fgt_IntroPlayCharVoiceAnim no pad read; waits slot bit then plays per-character intro voice and anim 0x71
+SK 0x80041ad4 fgt_IntroFinishByChar CONFIRM fgt_IntroFinishByChar per-character intro end wait, clears slot bit, to idle dispatch
+SK 0x80042040 fx_SpiritAnimTimedEffect_entry CONFIRM fx_SpiritAnimTimedEffect_entry 8-byte entry for timed effect spawn tied to spirit anim frame
+SK 0x80042048 fx_SpiritAnimTimedEffect CONFIRM fx_SpiritAnimTimedEffect compares owner anim frame to timers, plays anim 0x71, spawns per-character effect
+SK 0x800421e8 spirit_SetPosFromOwnerBone CONFIRM spirit_SetPosFromOwnerBone reads owner model bone offsets into spirit xyz, minus height const
+SK 0x800422fc spirit_StartLaunchOrFollow_entry CONFIRM spirit_StartLaunchOrFollow_entry 8-byte entry into StartLaunchOrFollow
+SK 0x80042304 spirit_StartLaunchOrFollow CONFIRM spirit_StartLaunchOrFollow follows bone or starts flight to target by owner flag
+SK 0x800423b4 spirit_FlyToTarget CONFIRM spirit_FlyToTarget steps physics with fly anim, on arrival zero velocity then landing state
+SK 0x80042468 spirit_LandAndReturnToOwner CONFIRM spirit_LandAndReturnToOwner on anim end frees slot bit, owner to idle, spirit to follow-face
+SK 0x80042500 hud_InitBannerTask CONFIRM hud_InitBannerTask stores banner task global, inits sprite anim, sets countdown state
+SK 0x8004259c hud_UpdateBannerTask CONFIRM hud_UpdateBannerTask runs state, updates and queues banner sprite draw
+SK 0x80042684 hud_BannerBeginCountdown CONFIRM hud_BannerBeginCountdown sets timer, sprite anim 1, to countdown A
+SK 0x800426d0 hud_BannerCountdownA CONFIRM hud_BannerCountdownA timer loop then timer reload, to countdown B
+SK 0x80042748 hud_BannerCountdownB CONFIRM hud_BannerCountdownB second timer loop, sets ready bit, to wait-ready
+SK 0x80042808 hud_BannerWaitReady CONFIRM hud_BannerWaitReady loops sprite until ready bit state, sets bit 2, to random anim pick
+SK 0x800428a0 hud_BannerPickRandomAnim CONFIRM hud_BannerPickRandomAnim picks banner anim 2 or 3 from random table
+SK 0x80042a48 hud_BannerWaitPhase2 CONFIRM hud_BannerWaitPhase2 waits global phase 2 then plays chosen anim
+SK 0x80042a54 hud_BannerWaitPhase2_param CONFIRM hud_BannerWaitPhase2_param same wait but phase passed as arg; no callers, ok
+SK 0x80042ad0 hud_BannerWaitPhase3 CONFIRM hud_BannerWaitPhase3 waits global phase 3 then plays sprite anim 5
+SK 0x80042b54 hud_BannerPlayAnim6 CONFIRM hud_BannerPlayAnim6 on anim end plays anim 6, to slide-out
+SK 0x80042bac hud_BannerSlideOut CONFIRM hud_BannerSlideOut moves x left each frame, sets done flag past limit
+SK 0x80042bec load_StartResourceTask CONFIRM load_StartResourceTask sets busy flag, creates icon xap loader task; used by loading and battle tasks
+SK 0x80042c38 load_IconXapTask CONFIRM load_IconXapTask stepwise loads icon xap entries as TIM to vram
+SK 0x80042e28 load_ParseXapEntryByType CONFIRM load_ParseXapEntryByType reads entry tag by index, extracts into buffer by tag type, TIM uploaded
+SK 0x80042ef0 load_StageEffectTask CONFIRM load_StageEffectTask loads stage xap then effect pack, then battle or mini-game loader
+SK 0x80042ff0 load_MiniNantokTask_entry CONFIRM load_MiniNantokTask_entry thin entry calling MiniNantokTask
+SK 0x80043024 load_MiniNantokTask CONFIRM load_MiniNantokTask loads mini-game xap, uploads all TIM entries, then battle resource loader
+SK 0x80043158 load_ResetSlotBuffers CONFIRM load_ResetSlotBuffers sets slot index, buffer pointers by slot stride, fills tables with -1
+SK 0x80043214 load_SetSlotCharInfo CONFIRM load_SetSlotCharInfo copies slot char id and flags into loader struct, looks up file ids
+SK 0x80043340 load_SlotStepArchive CONFIRM load_SlotStepArchive step 0 requests file, step 1 uploads TIM by type, advances buffer offset
+SK 0x800434fc load_PlayerAllXapStep CONFIRM load_PlayerAllXapStep step 0 requests per-char ALL xap, step 1 walks entries storing model/anim pointers by tag
+SK 0x800437ec load_PlayerEfctXapStep CONFIRM load_PlayerEfctXapStep step 0 requests per-char EFCT xap, step 1 uploads TIM/TIP and fixes model tables
+SK 0x80043b4c load_EffectEffFileStep CONFIRM load_EffectEffFileStep step 0 TIP, step 1 EFP, step 2 upload and align size
+SK 0x80043cc0 load_PlayerAllXapStageMode CONFIRM load_PlayerAllXapStageMode non-minigame only; loads fixed-id ALL xap and uploads TIM entries
+SK 0x80043df0 load_BattleResourceTask CONFIRM load_BattleResourceTask state machine loads per-slot player files, effect files, sound banks, then ends task
+SK 0x80044280 fgt_UpdateFighterPair RENAME fgt_TickFighter per-fighter tick: sets current/opponent globals, relative dx/dist/angle, runs AI and state func, anim update
+SK 0x800444f0 fgt_IdleStateDispatch CONFIRM fgt_IdleStateDispatch idle state: by mode routes to boss, move/attack select, round-end pose or idle move check
+SK 0x800445d8 fgt_UpdateIdleAnim CONFIRM fgt_UpdateIdleAnim picks idle/stance anim by flags; callers stop-move and crouch-begin
+SK 0x800446d8 fgt_StopMoveToIdle CONFIRM fgt_StopMoveToIdle zero x velocity, clear move flags, stop anim or idle update
+SK 0x80044754 fgt_IdleCheckMoveStart RENAME fgt_IdleTurnOrLoop facing mismatch plays anim 1 (turn), else loops idle anim; no move start
+SK 0x800447b4 fgt_BeginCrouchOrTurn CONFIRM fgt_BeginCrouchOrTurn sets crouch flag, picks crouch/turn anim; dispatched for move state 1
+SK 0x80044890 fgt_CrouchHoldTick CONFIRM fgt_CrouchHoldTick crouch-hold tick, facing change anim 9, loop anim 3
+SK 0x80044918 fgt_WalkForwardHold CONFIRM fgt_WalkForwardHold special-char walk begin: set flag, idle anim, then walk tick
+SK 0x80044990 fgt_WalkTickChar0xd CONFIRM fgt_WalkTickChar0xd walk tick variant for char type 0xd; loops anim 0
+SK 0x800449e4 fgt_BeginWalkForward CONFIRM fgt_BeginWalkForward sets flag, anim 2 then 3, runs walk tick
+SK 0x80044a98 fgt_WalkTickDispatch CONFIRM fgt_WalkTickDispatch picks char-0xd variant or default tick, loops anim 3
+SK 0x80044b0c fgt_BeginRun CONFIRM fgt_BeginRun clears move flags, anim 5, runs run tick
+SK 0x80044b60 fgt_RunTick CONFIRM fgt_RunTick sets x velocity from per-char table, mirrors by facing, loops run anim
+SK 0x80044bd0 fgt_BeginBackstep CONFIRM fgt_BeginBackstep zero x velocity, anim 6 unless flag, runs backstep tick
+SK 0x80044c4c fgt_BackstepTick CONFIRM fgt_BackstepTick backward velocity from per-char table, mirrored by facing, loops anim 6
+SK 0x80044cd8 fgt_BeginRecoverByHealth CONFIRM fgt_BeginRecoverByHealth timer from health tier table, then guard stance or hold timer; guard recover family
+SK 0x80044eb8 fgt_RecoverHoldTimer CONFIRM fgt_RecoverHoldTimer counts down while hold bits pressed, expiry to guard stance else idle
+SK 0x80044f94 fgt_BeginGuardStance CONFIRM fgt_BeginGuardStance sets guard counters, flag, anim 0x15, voice line, to stance hold
+SK 0x80045054 fgt_GuardStanceHold CONFIRM fgt_GuardStanceHold holds while guard bits pressed, loops anim 0x16, else back to idle

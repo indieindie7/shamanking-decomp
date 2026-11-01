@@ -1,0 +1,98 @@
+SK 0x80021f30 vs_InitSoloModeFighters CONFIRM vs_InitSoloModeFighters mode 11 sets fighter state from side bit
+SK 0x80023538 hud_DrawGaugeFrame RENAME pause_DrawMenuFrame only caller is pause menu update
+SK 0x80023800 hud_DrawStatusIconRow RENAME pause_DrawMenuItems loops menu entries and draws icons and arrow
+SK 0x8002b778 vsmenu_IsPlayerAIControlled UNSURE vsmenu_IsPlayerAIControlled caller use is odd
+SK 0x8002b7c4 battle_UpdatePlayerSpecialInput RENAME battle_DriveScriptedInput writes input words without reading the pad; 0 callers
+SK 0x8002be60 battle_UpdateMessageBox CONFIRM battle_UpdateMessageBox box plus typewriter text
+SK 0x8002e0c0 fx_UpdateSparkBurst RENAME fx_UpdateSwingTrail 4-frame history ring of fading quads
+SK 0x8002e6f0 fx_UpdateGteTrail RENAME fx_UpdateRadialSparks 16 slots at random angle around owner
+SK 0x8002ea30 fx_UpdateRibbonTrail UNSURE fx_UpdateRibbonTrail 24 slots, offset-based; purpose unclear
+SK 0x8002edd8 fx_UpdateRotatingTrail UNSURE fx_UpdateRotatingTrail 24 slots with scaled matrix; purpose unclear
+SK 0x80031fc8 char_StartMotionByCommand CONFIRM char_StartMotionByCommand name fits body
+SK 0x800335e0 anim_StoreTransformByType CONFIRM anim_StoreTransformByType name fits body
+SK 0x80033d10 battle_CheckBothPlayersDown CONFIRM battle_CheckBothPlayersDown name fits body
+SK 0x80034190 battle_UpdateHitComboFlags RENAME battle_UpdateFacingFlags compares x of both fighters and sets bit 4; called twice swapped from battle main
+SK 0x80034c64 battle_DispatchPlayerControl UNSURE battle_DispatchPlayerControl tail entry, little evidence
+SK 0x80034c78 battle_DispatchPlayerControlB UNSURE battle_DispatchPlayerControlB 0 callers
+SK 0x80034ebc battle_UpdatePlayerPhysics RENAME battle_CollectTrackedPositions pushes x/z into 16-entry list; called last in battle main
+SK 0x80038f38 fgt_BeginStunSelf RENAME fgt_BeginSuperCutinSelf starts the super cut-in sequence
+SK 0x80038f40 fgt_BeginStun RENAME fgt_BeginSuperCutin starts the super cut-in sequence
+SK 0x80038f9c fgt_StunSpawnEffectAnim RENAME fgt_SpawnSuperCutin spawns the cut-in effect and anim
+SK 0x80039050 fgt_StunStepScript RENAME fgt_SuperCutinStepScript steps the cut-in script
+SK 0x80039100 fx_UpdateAnimEffectTask RENAME spirit_UpdateSuperType3 per-frame update of super type 3 spirit task
+SK 0x80039360 fgt_BeginKnockbackSlide CONFIRM fgt_BeginKnockbackSlide name fits body
+SK 0x800393a8 fgt_KnockbackSlideStep CONFIRM fgt_KnockbackSlideStep name fits body
+SK 0x80039554 fgt_BeginKnockdownFall CONFIRM fgt_BeginKnockdownFall name fits body
+SK 0x80039598 fgt_KnockdownFallStep CONFIRM fgt_KnockdownFallStep name fits body
+SK 0x800396a4 fgt_LandFromKnockdown CONFIRM fgt_LandFromKnockdown name fits body
+SK 0x80039794 fgt_KnockdownBounceStep CONFIRM fgt_KnockdownBounceStep name fits body
+SK 0x800398d0 fgt_KnockdownSettleStep CONFIRM fgt_KnockdownSettleStep name fits body
+SK 0x8003998c fgt_LyingTimerStep CONFIRM fgt_LyingTimerStep name fits body
+SK 0x800399dc fgt_BeginGetUpRoll CONFIRM fgt_BeginGetUpRoll name fits body
+SK 0x80039a90 fgt_GetUpRollStep CONFIRM fgt_GetUpRollStep name fits body
+SK 0x80039b68 fgt_KnockdownResolveRound CONFIRM fgt_KnockdownResolveRound name fits body
+SK 0x80039d14 fgt_BeginKoLaunch CONFIRM fgt_BeginKoLaunch starts KO launch; 0 callers
+SK 0x80039d4c fgt_KoLaunchStep CONFIRM fgt_KoLaunchStep shrinks scale, spawns effect, then sets KO done flag
+SK 0x80039e40 fgt_SetKoDoneFlag CONFIRM fgt_SetKoDoneFlag sets flag 0x10000
+SK 0x80039e60 fgt_PlayAnim99ThenWait CONFIRM fgt_PlayAnim99ThenWait name fits body
+SK 0x80039e9c fgt_WaitAnimThenRecover CONFIRM fgt_WaitAnimThenRecover name fits body
+SK 0x80039ecc fgt_BeginMashRecover CONFIRM fgt_BeginMashRecover name fits body
+SK 0x80039f30 fgt_MashRecoverStep CONFIRM fgt_MashRecoverStep name fits body
+SK 0x8003a074 fx_SpawnHitSparkAtBoxOverlap CONFIRM fx_SpawnHitSparkAtBoxOverlap name fits body
+SK 0x8003a2d4 fgt_HitStunTickEntryA RENAME fgt_HitStopTickEntryA counts +0x23 hitstop counter
+SK 0x8003a2dc fgt_HitStunTickA RENAME fgt_HitStopTickA counts +0x23 hitstop counter
+SK 0x8003a3ac fgt_HitStunTickEntryB RENAME fgt_HitStopTickEntryB counts hitstop counter
+SK 0x8003a3b4 fgt_HitStunTickB RENAME fgt_HitStopTickB counts hitstop counter
+SK 0x8003a48c fgt_ForceOpponentHitReact RENAME fgt_ForceOpponentHitstop saves opponent state and sets hitstop wait state
+SK 0x8003a524 phys_SetDecelSlide CONFIRM phys_SetDecelSlide name fits body
+SK 0x8003a5c0 phys_SetJumpArc CONFIRM phys_SetJumpArc name fits body
+SK 0x8003a678 fgt_SetHitStopFrames CONFIRM fgt_SetHitStopFrames sets hitstop counters
+SK 0x8003a778 dmg_CalcHitDamage CONFIRM dmg_CalcHitDamage name fits body
+SK 0x8003a8e0 dmg_ApplyDamageToHealth CONFIRM dmg_ApplyDamageToHealth name fits body
+SK 0x8003ac30 dmg_ApplyDamageReduced CONFIRM dmg_ApplyDamageReduced name fits body
+SK 0x8003ae58 dmg_DrainSpiritMeterByDamage CONFIRM dmg_DrainSpiritMeterByDamage name fits body
+SK 0x8003aecc dmg_ReduceGuardPower CONFIRM dmg_ReduceGuardPower name fits body
+SK 0x8003af50 dmg_RefillGuardPower CONFIRM dmg_RefillGuardPower name fits body
+SK 0x8003b0f4 fgt_SwitchToPartnerFighter CONFIRM fgt_SwitchToPartnerFighter name fits body
+SK 0x8003b1d0 fgt_PlayCharVoiceByTable CONFIRM fgt_PlayCharVoiceByTable name fits body
+SK 0x8003b270 fgt_EnterGuardRecoverState CONFIRM fgt_EnterGuardRecoverState name fits body
+SK 0x8003b31c fgt_ResetToIdleAfterHit CONFIRM fgt_ResetToIdleAfterHit name fits body
+SK 0x8003b740 hit_TestAllFighterPairs CONFIRM hit_TestAllFighterPairs name fits body
+SK 0x8003b964 hit_TestHelperFighter CONFIRM hit_TestHelperFighter name fits body
+SK 0x8003ba68 hit_DispatchHandlerFacingAware CONFIRM hit_DispatchHandlerFacingAware picks table by facing bit 0x20
+SK 0x8003bc38 hit_DispatchHandlerByDefenderClass CONFIRM hit_DispatchHandlerByDefenderClass class 0-3 to facing-aware dispatch else other table; 0 callers
+SK 0x8003bca8 hit_DispatchHandlerTableF_entry CONFIRM hit_DispatchHandlerTableF_entry entry stub of table F dispatch; 0 callers
+SK 0x8003bcb0 hit_DispatchHandlerTableF CONFIRM hit_DispatchHandlerTableF class 0-3 or flag 0x400 skips, else table lookup
+SK 0x8003bd50 hit_DispatchHandlerTableG UNSURE hit_DispatchHandlerTableG 8-byte stub, little evidence
+SK 0x8003bd58 hit_DispatchHandlerTableG_entry CONFIRM hit_DispatchHandlerTableG_entry calls stub or table G handler
+SK 0x8003bdd8 fx_SpawnEffect CONFIRM fx_SpawnEffect routes battle ids to battle effect task else generic spawn
+SK 0x8003be4c fx_SpawnBattleEffectTask CONFIRM fx_SpawnBattleEffectTask name fits body
+SK 0x8003c0a0 fx_UpdateBattleEffectTask CONFIRM fx_UpdateBattleEffectTask per-frame update, follows fighter, then frees; 0 callers
+SK 0x8003c2ec fx_InitTrailTask CONFIRM fx_InitTrailTask sets trail count 0 and registers task
+SK 0x8003c354 fx_TrailTaskUpdate CONFIRM fx_TrailTaskUpdate latches count and queues draw
+SK 0x8003c3b8 fx_DrawTrail CONFIRM fx_DrawTrail GTE-transforms trail points into quad primitives
+SK 0x8003c6fc fx_InitDelayedEffect CONFIRM fx_InitDelayedEffect sets delay 10 then wait state
+SK 0x8003c72c fx_DelayedEffectWait CONFIRM fx_DelayedEffectWait counts down then inits sprite and pushes trail point
+SK 0x8003c814 fx_TrailPushPoint CONFIRM fx_TrailPushPoint appends position to trail array max 16
+SK 0x8003c890 hud_InitFloatingSprite CONFIRM hud_InitFloatingSprite places sprite relative to camera
+SK 0x8003c908 hud_UpdateFloatingSprite CONFIRM hud_UpdateFloatingSprite steps anim, frees on flag, draws
+SK 0x8003c964 fx_InitAttachedEffect76 CONFIRM fx_InitAttachedEffect76 sets frame 0x76 with fixed offset per fighter
+SK 0x8003ca38 fx_UpdateAttachedEffect CONFIRM fx_UpdateAttachedEffect animates and queues draw
+SK 0x8003ca68 fx_InitClashSplashBoth CONFIRM fx_InitClashSplashBoth spawns effect 0x1b at both fighters
+SK 0x8003cb9c fx_ClashSplashBothStep CONFIRM fx_ClashSplashBothStep spawns effect 0x1c at both then frees
+SK 0x8003cd70 anim_StepSpriteAnim CONFIRM anim_StepSpriteAnim delay countdown, loop and end flags
+SK 0x8003d08c fgt_BeginRoundEndPose CONFIRM fgt_BeginRoundEndPose health compare picks win or lose pose
+SK 0x8003d138 fgt_WinPoseRandomSetup CONFIRM fgt_WinPoseRandomSetup random pick of two win anims, per-role switch
+SK 0x8003d650 fgt_WinPoseWaitAnimEnd CONFIRM fgt_WinPoseWaitAnimEnd marks done bit when anim ends
+SK 0x8003d710 fgt_WinPoseCountdownSpawn CONFIRM fgt_WinPoseCountdownSpawn countdown then spawns helper object
+SK 0x8003d7f8 fgt_BeginPoseHoldTimer CONFIRM fgt_BeginPoseHoldTimer timer 15, zero y, hold step
+SK 0x8003d83c fgt_PoseHoldTimerStep CONFIRM fgt_PoseHoldTimerStep counts down setting flag 0x10000
+SK 0x8003d8b4 fgt_BeginDefeatFade CONFIRM fgt_BeginDefeatFade timer 15, anim 0x72, wait state
+SK 0x8003d900 fgt_DefeatFadeWait CONFIRM fgt_DefeatFadeWait counts timer then rise state
+SK 0x8003d954 fgt_DefeatFadeRise CONFIRM fgt_DefeatFadeRise shrinks scale, accelerates rise, marks done
+SK 0x8003d9e8 fgt_DefeatFadeSpawnSparkle CONFIRM fgt_DefeatFadeSpawnSparkle spawns effect 0x380c, shrinks scale, marks done
+SK 0x8003db44 fgt_WaitAnimThenAnim75 CONFIRM fgt_WaitAnimThenAnim75 anim end then plays anim 0x75
+SK 0x8003db94 fgt_BeginMoveToTarget_entry CONFIRM fgt_BeginMoveToTarget_entry entry stub of move-to-target setup; 0 callers
+SK 0x8003db9c fgt_BeginMoveToTarget CONFIRM fgt_BeginMoveToTarget velocity over 0x11 frames to target position
+SK 0x8003dcd8 fgt_MoveToTargetStep CONFIRM fgt_MoveToTargetStep counts frames, snaps to target, applies gravity
+SK 0x8003deb8 fgt_WaitAnimMarkDone CONFIRM fgt_WaitAnimMarkDone sets done bit when anim ends

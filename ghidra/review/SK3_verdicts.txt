@@ -1,0 +1,97 @@
+SK 0x800450d4 fgt_BeginDashForward CONFIRM fgt_BeginDashForward starts forward dash state and anim
+SK 0x800451d4 fgt_DashForwardTick CONFIRM fgt_DashForwardTick per-frame forward dash motion and end check
+SK 0x80045254 fgt_BeginDashBack CONFIRM fgt_BeginDashBack starts backward dash state
+SK 0x80045354 fgt_DashBackTick CONFIRM fgt_DashBackTick per-frame backward dash step
+SK 0x800453d4 fgt_BeginJump CONFIRM fgt_BeginJump enters jump state
+SK 0x80045448 fgt_JumpInit CONFIRM fgt_JumpInit sets up jump parameters
+SK 0x800454a8 fgt_JumpDirectionCount CONFIRM fgt_JumpDirectionCount counts held directions for jump choice
+SK 0x80045588 fgt_JumpTryAirAction CONFIRM fgt_JumpTryAirAction tests input for air action
+SK 0x80045698 fgt_JumpLaunch CONFIRM fgt_JumpLaunch applies launch velocity
+SK 0x80045988 fgt_JumpAscendTick CONFIRM fgt_JumpAscendTick rising phase update
+SK 0x80045a5c fgt_JumpApexTick CONFIRM fgt_JumpApexTick apex phase update
+SK 0x80045adc fgt_BeginAirHover CONFIRM fgt_BeginAirHover starts air hover state
+SK 0x80045b48 fgt_AirHoverTick CONFIRM fgt_AirHoverTick hover per-frame update
+SK 0x80045cdc fgt_FallTick CONFIRM fgt_FallTick falling phase update
+SK 0x80045db4 fgt_LandingTick CONFIRM fgt_LandingTick landing recovery update
+SK 0x80045e3c fgt_BeginLandingNoBuffer CONFIRM fgt_BeginLandingNoBuffer landing start without input buffer
+SK 0x80045eb0 fgt_DispatchMoveByDirection CONFIRM fgt_DispatchMoveByDirection picks move by direction
+SK 0x80046038 fgt_ResetToIdleState CONFIRM fgt_ResetToIdleState returns fighter to idle
+SK 0x80046124 fgt_UpdateCrouchGuardAnim CONFIRM fgt_UpdateCrouchGuardAnim crouch and guard anim select
+SK 0x80046358 fgt_OpponentAttackActive CONFIRM fgt_OpponentAttackActive tests opponent attack state
+SK 0x8004645c fgt_UpdateMoveDirection CONFIRM fgt_UpdateMoveDirection derives move direction from input
+SK 0x800465b4 ai_InitFighterAiTask CONFIRM ai_InitFighterAiTask sets up AI task
+SK 0x80046730 ai_UpdateFighterAi CONFIRM ai_UpdateFighterAi per-frame AI decisions
+SK 0x800524cc fighter_StateRushAttackRunCheck_2 RENAME fighter_StateRushAttackRunCheckAlt no numeric suffix; alternate entry of rush distance check
+SK 0x80052c08 chr_StartAnim51IfFlagClear CONFIRM chr_StartAnim51IfFlagClear name matches body
+SK 0x80052ca0 fx_TaskDrawCharEffectGte RENAME fx_TaskDrawFighterBeamGte tiled segmented quads between own part and opponent part with ratan2 rotation
+SK 0x80053524 fx_TaskDrawTrailGte CONFIRM fx_TaskDrawTrailGte trail draw task
+SK 0x8005cfa0 font_DrawStringScaledGte RENAME font_DrawGlyphOutlineGte draws a single glyph polyline outline
+SK 0x8005d61c font_DrawStringGte RENAME font_DrawGlyphGte draws a single glyph as flat quads
+SK 0x8005df18 anim_DrawObjectParts CONFIRM anim_DrawObjectParts draws parts of an object
+SK 0x8005e61c anim_DrawPartsToPrimBuffer CONFIRM anim_DrawPartsToPrimBuffer writes parts into prim buffer
+SK 0x8005f0a4 anim_SetupPartsFlat CONFIRM anim_SetupPartsFlat flat part setup
+SK 0x8005f644 anim_SetupPartsGte CONFIRM anim_SetupPartsGte GTE part setup
+SK 0x80060100 anim_DrawPartsVariantA CONFIRM anim_DrawPartsVariantA part draw variant
+SK 0x800605cc anim_DrawPartsVariantB CONFIRM anim_DrawPartsVariantB sprite quads with flip and scale; caller image animate
+SK 0x80060cb8 anim_DrawPartsVariantGte CONFIRM anim_DrawPartsVariantGte GTE rotation variant
+SK 0x80061d00 gfx_DrawScrollWrapBands CONFIRM gfx_DrawScrollWrapBands two wrapped bands with draw move
+SK 0x80062560 mcard_StartFormatOrAccept RENAME mcard_FormatSlot marks slot dirty and calls MemCardFormat, maps result
+SK 0x800633b8 chr_FindMotionDataForState CONFIRM chr_FindMotionDataForState picks motion data by state and frame
+SK 0x80063868 chr_UpdateMotionSpecialCases RENAME chr_DrawModelAndAura walks parts builds prims, GTE transform, then aura ring; no special-case switch
+SK 0x800640b0 model_FixupSectionPointers RENAME model_OffsetTexPagesAll calls tex page offset over section tables
+SK 0x800641bc model_FixupTableEntries RENAME model_OffsetTableTexPages loops offset table applying tpage offset
+SK 0x8006445c chr_ProcessMotionEvents RENAME chr_DrawAuraRing builds wobbling 16-point ring and draws polys; no event processing
+SK 0x800654a8 obj_BuildPartTexOffsets CONFIRM obj_BuildPartTexOffsets adds offsets to unique part uv
+SK 0x800656e4 obj_UpdateModelState CONFIRM obj_UpdateModelState advances keyframe tracks and returns done
+SK 0x80066308 obj_DrawModelParts CONFIRM obj_DrawModelParts large model draw queued to sort
+SK 0x80069674 sys_CallLoaderThunk RENAME fx_InitSystemDefault only calls fx_InitSystem with fixed args
+SK 0x8006ca1c seq_CmdExpression CONFIRM seq_CmdExpression sequencer expression command
+SK 0x8006cbbc seq_CmdReverbDepth CONFIRM seq_CmdReverbDepth sequencer reverb depth command
+SK 0x8006d02c seq_SetVoiceParam_Byte0 CONFIRM seq_SetVoiceParam_Byte0 voice param setter
+SK 0x8006d17c seq_SetVoiceParam_Byte2 CONFIRM seq_SetVoiceParam_Byte2 voice param setter
+SK 0x8006d20c seq_SetVoiceParam_Byte3 CONFIRM seq_SetVoiceParam_Byte3 voice param setter
+SK 0x8006da1c seq_SetVoiceParam_Byte5 CONFIRM seq_SetVoiceParam_Byte5 voice param setter
+SK 0x8006dabc seq_SetVoiceParam_Byte6 CONFIRM seq_SetVoiceParam_Byte6 voice param setter
+SK 0x8006db5c seq_SetVoiceParam_Byte7 RENAME seq_SetReverbMode calls spu_SetReverbMode
+SK 0x8006db8c seq_SetVoiceReverb RENAME seq_SetReverbVolume calls spu_SetReverbVolume with same byte twice
+SK 0x8006dbbc seq_SetVoiceParam_Byte8 RENAME seq_SetReverbDelay calls spu_SetReverbDelay
+SK 0x8006dbec seq_SetPitchBend RENAME seq_SetReverbType calls spu_SetReverbType
+SK 0x8006dc1c seq_SetPitchBend_2 RENAME seq_SetReverbTypeAlt duplicate of reverb type wrapper; no numeric suffix
+SK 0x8006e6fc spu_SetupReverbMode RENAME spu_SetupSeqTickTimer root counter and interrupt callback setup by tick rate
+SK 0x8006e9c0 spu_ToggleCallback_2 RENAME spu_ToggleCallbackAlt register-arg variant; no numeric suffix
+SK 0x8006f454 seq_FadeVolume_2 RENAME seq_SetTrackPanWrap packs slot and track then calls snd_SetTrackPan; not a fade
+SK 0x8007079c spu_SetReverbType CONFIRM spu_SetReverbType sets reverb type
+SK 0x800711c0 spu_SetReverbVolume_2 RENAME spu_SetReverbVolumeRegArgs register-arg variant dividing by 64
+SK 0x800713ac spu_SetReverbDelay CONFIRM spu_SetReverbDelay sets reverb delay
+SK 0x8007538c spu_AllocBlockWrapA CONFIRM spu_AllocBlockWrapA thin wrapper
+SK 0x800753c0 spu_AllocBlockWrapB CONFIRM spu_AllocBlockWrapB duplicate thin wrapper
+SK 0x800753fc spu_AllocBlockSlot CONFIRM spu_AllocBlockSlot finds free slot of 16, checks header, calls allocator
+SK 0x800757ec spu_WriteBlockToSlot CONFIRM spu_WriteBlockToSlot writes data to slot and marks it loaded
+SK 0x800767cc cd_StopIntr CONFIRM cd_StopIntr clears CD and DMA callbacks under critical section
+SK 0x80076c1c cd_IssueCommand RENAME cd_DataReadyHandler callback thunk target; handles status, sector DMA and queue, not command issue
+SK 0x8007925c gte_BuildMatrixFromVectors RENAME gte_OrthonormalizeMatrix cross products and normalize rows in place, used on blended pose matrices
+SK 0x80079e9c RotMatrixYXZ CONFIRM RotMatrixYXZ builds matrix from three angles via sine table; caller sets bg rotation
+SK 0x8007a12c RotMatrixZYX CONFIRM RotMatrixZYX builds matrix from three angles via sine table
+SK 0x8007a6fc gte_RotMatrixFromAnglesGte_A RENAME gte_RotMatrixFromPackedAngles packed angles to matrix; callers rest pose and angle blend
+SK 0x8007a8fc gte_RotMatrixFromAnglesGte_B RENAME gte_RotMatrixFromPackedAnglesAlt sign-variant of packed angle matrix; no letter suffix
+SK 0x8007ad6c mat_Orthonormalize RENAME mat_BuildRotationAxisBasis subtracts identity, finds largest cross term, builds basis around rotation axis
+SK 0x8007b2cc gs_UpdateCoordAndSort RENAME gs_SortRotScaleSprite builds rotated scaled sprite prim and links into OT
+SK 0x8007bd14 gs_SetClearRect CONFIRM gs_SetClearRect fills clear rect prim for active buffer
+SK 0x8007c17c gs_EnableVSyncEvent RENAME gs_StartVSyncRootCounter SetRCnt and StartRCnt on root counter event
+SK 0x8007c45c GsSetFlatLight CONFIRM GsSetFlatLight sets light direction and color per light index
+SK 0x8007c9fc gs_SetDrawEnvFromStruct RENAME gs_DrawOtFromStruct only calls DrawOTag on struct field
+SK 0x8007edd4 gpu_GetOddLineFlag CONFIRM gpu_GetOddLineFlag returns status bit 31
+SK 0x8007eddc gpu_GetOddLineFlag_2 RENAME gpu_GetOddLineFlagRegArg table pointer in register; no numeric suffix
+SK 0x800806f4 gpu_InitGP1Mode CONFIRM gpu_InitGP1Mode GP1 info query and mode words
+SK 0x80081ba0 cd_RunQueueCallbacks CONFIRM cd_RunQueueCallbacks runs per-entry callbacks with status and result
+SK 0x800820b0 cd_ResetIfIdle CONFIRM cd_ResetIfIdle clears queue state and installs CD callbacks when idle
+SK 0x80082fc8 cd_SetCallbackSlot RENAME cd_SetKickQueueCallback stores the kick-queue callback pointer
+SK 0x80082fec cd_SetCallback3 RENAME cd_SetSyncInvokeCallback stores the sync-invoke callback pointer
+SK 0x8008c214 gpu_AddPolyFT4 RENAME gpu_AddPolyG4 copies 9-word packet; callers set four vertex colors and no uv, so gouraud quad
+SK 0x8008ddec model_DrawFrontFacesAlt RENAME model_DrawFrontFacesLit calls G3 G4 and lit GT3 GT4 batch drawers
+SK 0x8008ef64 gte_DrawBatchGT3FrontLit CONFIRM gte_DrawBatchGT3FrontLit textured gouraud tris with colour shift
+SK 0x8008f47c gte_EmitBatchTriFront CONFIRM gte_EmitBatchTriFront copies screen xy of front-facing tris to buffer
+SK 0x8008f544 gte_EmitBatchQuadFront CONFIRM gte_EmitBatchQuadFront copies screen xy of front-facing quads to buffer
+SK 0x800903fc gte_DrawBatchFT3Front CONFIRM gte_DrawBatchFT3Front 7-word flat textured tri prims, NCLIP front only
+SK 0x8009064c gte_DrawBatchTexFrontOffset8 RENAME gte_DrawBatchG3FrontNormalLit 6-word gouraud tri with interleaved colour and xy, normal lighting
+SK 0x80090790 gte_DrawBatchG4FrontNoCull2 RENAME gte_DrawBatchG4FrontNormalLit 8-word gouraud quad with normal lighting; no numeric suffix
