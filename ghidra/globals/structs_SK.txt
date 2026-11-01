@@ -1,0 +1,57 @@
+# Evidence: all5.c lines 44030-59986 (many fns) use g_battle_ctx_ptr + off; slot array ctx+idx*0x52+0xcc at 23532-23717, 45016-45072. Size 0x11e = slot0 end (min; real size unproven).
+struct SK_BattleCtx 11e
+14 ushort input_flags
+16 short field_16
+18 short field_18
+1a char phase_a
+1b byte phase_b
+1c byte mode
+20 int frame_time
+30 byte state_30
+31 char state_31
+32 short timer_32
+3c short counter_3c
+3e byte param_3e
+3f byte param_3f
+40 byte param_40
+41 byte param_41
+42 byte param_42
+43 byte flags_43
+44 byte flags_44
+46 short pos_46
+48 short pos_48
+cc SK_BattleSlot slot0
+# Evidence: ctx + fighter[+0x1c] * 0x52 + 0xcc/0xcd at all5.c 23532-23717, 45016-45072 (index = fighter slot byte).
+struct SK_BattleSlot 52
+0 byte state_cc
+1 byte state_cd
+# Evidence: g_fighter_cur_ptr / param_2 offsets at all5.c 43645-43656 (anim setup), 23435-23717, 45006-45082 (+0x1c slot index byte used with *0x52 and *0x70040).
+struct SK_Fighter 104
+1c byte slot_idx
+e8 ushort* anim_ptr
+f0 uint anim_id
+fc short field_fc
+fe short field_fe
+100 short field_100
+102 short field_102
+# Evidence: cd_str_queue_buf + idx*0x20 in cd_CmdComplete (all5.c 91111-91114), 91250-91317 (stream queue); 0x20 stride proven.
+struct SK_CdStrEntry 20
+0 ushort state
+8 int cmd_result
+1c int pos_bcd
+# Evidence: cd_queue_base + idx*0x18 in cd queue fns all5.c 99043-99062 (init loop of 8), 99088, 99239-99264; globals cd_queue_cmd/arg/cb/retry sit at +4/+0xc/+0x10/+0x14.
+struct SK_CdQueueEntry 18
+0 int id
+4 byte cmd
+c int arg
+10 pointer cb
+14 int retry
+# Evidence: pad_port_context_base + port*0xf0 in pad_StartSioTransfer/pad_ProcessStep calls (all5.c 105093-105153, 105689-105737); init loop of 2 ports; +0x30/+0x120 buffer ptr per port.
+struct SK_PadPort f0
+c int field_0c
+10 int owner_ctx
+30 int rx_buf
+5d byte[6] buttons_raw
+# Evidence: spu_voice_state_base + idx*0x44 copied 0x44 bytes at all5.c 87635, 87669 (voice index 7/8 special-cased).
+struct SK_SpuVoiceState 44
+0 uint header

@@ -21,6 +21,7 @@ Current state (after round 4):
 - Round 3 (11-01, coverage): `tools/orphans.py` scanned for code no function owned (pointer-table handlers, leaf functions after `jr ra`, jal targets in gaps). 243 missed functions created and named (SLPS +143, STORY +61, TRAIN +26, MINI +10, MOVIE +3); leftover refs checked to be data. New names still marked `provisional` where unsure.
 - Round 4 (11-01): all 110 provisional names re-read with current callee names + callers (`tools/provctx3.py`, verdicts `ghidra/review/r3_SK_*_verdicts.txt`): 90 confirmed, 13 renamed, 7 still `provisional`.
 
+- Globals + types (11-01): gp = 0x800bf3c8 set over every program (`SetGp.java`; `unaff_gp` 1507 -> 0), every `DAT_` global named from its usage lines by 9 agent batches (`ghidra/globals/gl_prompt_SK.txt`, merged by `tools/glmerge.py`): main exe 2,017 globals, overlay-local MINI 416, OPTION 227, STORY 149, TRAIN 99, MOVIE 28; 0 `DAT_` left in code. About 800 names still end in `_<addr>` (byte fields inside draw-primitive buffers and tables). 7 structs proven by offsets/strides (`structs_SK.txt`: battle context, battle slot 0x52, fighter, CD stream/queue entries, pad port 0xf0, SPU voice 0x44), 6 globals typed (`gtypes_SK.txt`).
 Game: 3D arena fighter where shamans fight with a guardian spirit (over soul, furyoku spirit meter).
 Subsystems named so far: fighters and character state machines (`fighter_`, `fgt_`, `char_`/`chr_`), spirits
 (`spirit_`), hit detection (`hit_`), battle and versus flow (`battle_`, `vs_`), AI (`ai_`), bosses (`boss_`),
@@ -45,8 +46,9 @@ no Ghidra database. You need your own copy of the game to use any of this.
 | `ghidra/funcinfo_<prog>.tsv` | per-function export: `F` address name source size, `C` callees (string rows removed) |
 | `ghidra/naming/prompt_SK.txt` | the round-1 naming prompt |
 | `ghidra/review/` | round-2 review prompt + verdict lines (`SK 0x<addr> <old> CONFIRM/RENAME/UNSURE <new> <reason>`) |
-| `ghidra/scripts/` | `SeedMipsFunctionsAt.java` (prologue seeding from the program's lowest address), `CsDumpAll.java` (decompile dump) |
-| `tools/` | `psxrules.py`, `injecthints.py`, `trimdump.py`, `slice.py`, `mergehand.py`, `pubfuncinfo.py`, `orphans.py` (coverage scan) |
+| `ghidra/globals/` | `globals_<prog>.txt` (`0x<addr> <name>`, overlay files include the main names), `structs_SK.txt` (DefineStructs spec, category /ShamanKing), `gtypes_SK.txt`, naming prompt; apply with `ApplyGlobals.java <file>` and `DefineStructs.java <spec> /ShamanKing` |
+| `ghidra/scripts/` | `SeedMipsFunctionsAt.java` (prologue seeding from the program's lowest address), `CsDumpAll.java` (decompile dump), `SetGp.java <hex>` (gp context), `AddBss.java <start> <end>` (bss block), `ApplyGlobals.java`, `DefineStructs.java` |
+| `tools/` | `psxrules.py`, `injecthints.py`, `trimdump.py`, `slice.py`, `mergehand.py`, `pubfuncinfo.py`, `orphans.py` (coverage scan), `glscan.py` / `glctx.py` / `glmerge.py` (globals) |
 
 ## Licence
 

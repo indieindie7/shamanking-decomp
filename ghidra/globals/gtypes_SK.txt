@@ -1,0 +1,6 @@
+0x800bf814 g_battle_ctx_ptr SK_BattleCtx*
+0x800bf820 g_fighter_cur_ptr SK_Fighter*
+0x800c65d0 cd_str_queue_buf SK_CdStrEntry*
+0x800c8120 cd_queue_base SK_CdQueueEntry[8]
+0x800bf0d8 pad_port_context_base SK_PadPort*
+0x800b7ee4 spu_voice_state_base SK_SpuVoiceState
