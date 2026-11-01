@@ -2006,13 +2006,13 @@
 0x80015948 func stub_80015948 hand empty return
 0x800159e8 func stub_800159e8 hand empty return
 0x80015a90 func obj_SetShort16 hand if non-null stores halfword at +0x16
-0x80015aa8 func obj_SetHiddenFlag hand provisional if non-null sets bit0 of byte +0x15
-0x80015ac8 func obj_GetHiddenFlag hand provisional returns bit0 of byte +0x15
-0x80015ad4 func obj_ClearHiddenFlag hand provisional if non-null clears bit0 of byte +0x15
+0x80015aa8 func obj_SetHiddenFlag hand if non-null sets bit0 of byte +0x15
+0x80015ac8 func obj_GetHiddenFlag hand returns bit0 of byte +0x15
+0x80015ad4 func obj_ClearHiddenFlag hand if non-null clears bit0 of byte +0x15
 0x80015af4 func obj_SetPair18 hand if non-null stores two words at +0x18 and +0x1c
 0x80015f60 func fx_ResetGlobalParams hand sets four globals at 0x800a3d80.. to constants 0x2ffff,0x1f,0x1ffff,0x1f and flag 1
 0x80016334 func sys_ClearTwoGlobals hand zeroes two words at 0x800a3fc0/c4
-0x8001b0cc func ui_SetCursorHalfword hand provisional stores halfword at +4 of struct pointed by gp+0x26c
+0x8001b0cc func script_SetVarsHalfword hand stores halfword at +4 of struct pointed by gp+0x26c (was ui_SetCursorHalfword)
 0x80022b54 func stub_80022b54 hand empty return
 0x8002334c func pad_UpdateButtonEdges hand per port computes press/release/held-repeat masks from raw history, repeat timer 0x20, ORs masks for enabled ports
 0x800250b4 func fade_StartTransitionA hand sets gp transition state: handler 0x80024f10, targets, start value, step flag, sets 0x800bf3d5
@@ -2117,7 +2117,7 @@
 0x80089a78 func pad_GetSlotByte hand returns table byte chosen by mode +0x37, indexed by +0x45-3
 0x80089db0 func mc_GetBufferByNibble hand returns 0x800cab00 or 0x800cabf0 if high nibble set
 0x8008a22c func pad_IsPortBusy hand returns 1 unless +0xe6==0 and +0x46==-1
-0x8008b284 func mc_ReadStateStep hand provisional card/pad response state machine on +0x46, compares and stores bytes, advances +0x47
+0x8008b284 func mc_ReadStateStep hand card/pad response state machine on +0x46, compares and stores bytes, advances +0x47
 0x8008b82c func pad_SendFirstByte hand calls callbacks then SioSendByte with mode byte +0x37 or 0x42
 0x8008c36c func gpu_AddPrimCopy7Words hand copies 7-word prim into 0x800c6878 buffer and links into OT
 0x8008d008 func gte_RenderTrisNCLIP_A hand RTPT+NCLIP+AVSZ3 loop, builds 7-word gouraud tri packets into OT

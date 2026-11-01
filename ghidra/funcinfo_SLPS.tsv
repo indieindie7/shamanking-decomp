@@ -419,7 +419,7 @@ C 80025d44
 C 80023078
 C 8001519c
 F 8001b06c vs_SetCursorHiddenByResult USER_DEFINED 96
-F 8001b0cc ui_SetCursorHalfword USER_DEFINED 12
+F 8001b0cc script_SetVarsHalfword USER_DEFINED 12
 F 8001b0d8 vs_ShuffleOpponentList USER_DEFINED 328
 F 8001b220 vs_InitBattleState USER_DEFINED 564
 C 80015f98

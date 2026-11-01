@@ -96,13 +96,13 @@
 0x800cd38c func script_OpReturn hand script op: pops call stack DAT_800bf638 into script pointer
 0x800cd3f0 func script_OpStoreCacheSlot hand split tail of script_OpResetXapCache: stores operand into DAT_800bf659
 0x800cd664 func script_OpHideSlotSprite hand script op: clears active byte +0x21 of image slot object indexed by operand
-0x800cd68c func script_OpStartSlotTween hand provisional script op: clears +0x20, sets +0x24 and +0x1e from operand, flags +0x23 dirty on slot object
+0x800cd68c func script_OpSetBgSlotParam hand script op: clears +0x20, sets +0x24 and +0x1e from operand, flags +0x23 dirty on slot object (was script_OpStartSlotTween)
 0x800cd744 func script_OpWaitSlotsIdle hand script op: returns 0 while either of two slot objects at 0x800bf640 has dirty byte +0x23, else 1
 0x800cd770 func script_OpWaitSlotsIdleTail hand split loop tail of script_OpWaitSlotsIdle checking second slot dirty byte
 0x800cd784 func script_OpSetSlotDuration hand script op: slot object +0x2c = operand<<12 / 1000 (milliseconds to seconds fixed point)
 0x800cd7d4 func script_OpSetSlotPosX hand script op: writes operand to slot object +0x26 and +0x18 (x position/target)
 0x800cdba4 func script_OpHidePortrait hand script op: clears byte +0x22 of portrait object indexed by operand (table 0x800bf648)
-0x800cdd4c func script_OpSetPortraitColor hand provisional script op: stores operand byte into portrait object +0x21
+0x800cdd4c func script_OpSetPortraitColor hand script op: stores operand byte into portrait object +0x21
 0x800cde68 func script_OpWaitPortraitsIdle hand script op: returns 0 while either portrait object has dirty byte +0x23, else 2
 0x800cde94 func script_OpWaitPortraitsIdleTail hand split loop tail of script_OpWaitPortraitsIdle checking second portrait
 0x800cdea8 func script_OpShowText hand script op: on first call clears text-done byte and sets text pointer from string table, returns 2 when finished

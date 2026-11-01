@@ -1,0 +1,7 @@
+SK 0x80015aa8 obj_SetHiddenFlag CONFIRM obj_SetHiddenFlag null-guarded set of bit0 in byte +0x15, matches get/clear pair
+SK 0x80015ac8 obj_GetHiddenFlag CONFIRM obj_GetHiddenFlag returns bit0 of byte +0x15, pair with set/clear
+SK 0x80015ad4 obj_ClearHiddenFlag CONFIRM obj_ClearHiddenFlag null-guarded clear of bit0 in byte +0x15
+SK 0x8001b0cc ui_SetCursorHalfword RENAME script_SetVarsHalfword writes halfword at +4 of g_script_vars_ptr, a script-vars struct not a cursor
+SK 0x8008b284 mc_ReadStateStep CONFIRM mc_ReadStateStep per-response step of read state machine (states 2,3,4), verifies/stores bytes, advances index +0x47
+SK 0x800cd68c script_OpStartSlotTween RENAME script_OpSetBgSlotParam script op: bg sprite slot arg1 gets arg2 into +0x24 and +0x1e, clears +0x20, sets dirty +0x23; no tween evidence
+SK 0x800cdd4c script_OpSetPortraitColor CONFIRM script_OpSetPortraitColor script op stores arg2 byte into portrait slot arg1 field +0x21

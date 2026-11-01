@@ -41,7 +41,7 @@ C 800cbb24
 F 800cd56c script_OpShowBackground USER_DEFINED 248
 C 800cbbf4
 F 800cd664 script_OpHideSlotSprite USER_DEFINED 40
-F 800cd68c script_OpStartSlotTween USER_DEFINED 80
+F 800cd68c script_OpSetBgSlotParam USER_DEFINED 80
 F 800cd6dc script_OpShowSlotSprite USER_DEFINED 104
 F 800cd744 script_OpWaitSlotsIdle USER_DEFINED 44
 F 800cd770 script_OpWaitSlotsIdleTail USER_DEFINED 20
