@@ -39,7 +39,7 @@ no Ghidra database. You need your own copy of the game to use any of this.
 | `ghidra/hand_<prog>.txt` | hand names: `0x<addr> func <name> hand <comment>` (apply with ApplyNames.java from the Scorcher / AMOK repos, hand mode) |
 | `ghidra/funcinfo_<prog>.tsv` | per-function export: `F` address name source size, `C` callees (string rows removed) |
 | `ghidra/naming/prompt_SK.txt` | the round-1 naming prompt |
-| `ghidra/review/` | round-2 review prompt + verdict lines (`SK 0x<addr> <old> CONFIRM|RENAME|UNSURE <new> <reason>`) |
+| `ghidra/review/` | round-2 review prompt + verdict lines (`SK 0x<addr> <old> CONFIRM/RENAME/UNSURE <new> <reason>`) |
 | `ghidra/scripts/` | `SeedMipsFunctionsAt.java` (prologue seeding from the program's lowest address), `CsDumpAll.java` (decompile dump) |
 | `tools/` | `psxrules.py`, `injecthints.py`, `trimdump.py`, `slice.py`, `mergehand.py`, `pubfuncinfo.py` |
 
