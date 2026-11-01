@@ -1,0 +1,40 @@
+0x800cb3b8 func opt_DrawBackground hand draws four-part option screen background prims via sprite helper
+0x800cb488 func opt_MenuItemAnimTask hand animated menu item sprite task, ten instances, eased position and colour
+0x800cb8d0 func opt_PortraitCursorTask hand character portrait and cursor sprite task, follows selected option
+0x800cbadc func opt_CursorFollowTask hand cursor pointer sprite follows target position with easing each frame
+0x800cbc0c func opt_MenuLabelTask hand menu label sprite task, draws label icon by index with blink colour
+0x800cbef0 func opt_MenuItemSpriteTask hand menu item sprite task, selected item brightened and scaled
+0x800cc4c4 func opt_DrawWindowFrame hand draws option window frame corners and edges via prims
+0x800cc81c func opt_DrawWindowItems hand draws window item text, scroll arrows and highlight bar
+0x800ccbd8 func opt_DrawOptionValues hand draws current option values (sliders, on/off) for visible rows
+0x800cceac func opt_DrawBorders hand draws border strips around option panel via prims
+0x800ccfc0 func opt_ExitTask hand exit-options task: fade out, kills option tasks, returns to previous scene
+0x800cd100 func opt_MainMenuTask hand main option menu: up/down moves cursor, confirm selects sub-screen, cancel exits
+0x800cd6c8 func opt_Init hand option init: loads VABOPT.XAP and OPTION.XAP, spawns background and menu tasks
+0x800cda44 func opt_WindowSlideTask hand window slide animation, eased open and close of option panel
+0x800cddd4 func opt_SoundTestTask hand sound test and voice select: left/right changes id, confirm plays sound
+0x800ce108 func opt_DrawWrapper hand draw wrapper calling background and window draw routines in order
+0x800ce13c func opt_DrawYesNo hand draws yes/no choice buttons with highlight by selection
+0x800ce294 func opt_DrawYesNo_2 hand second yes/no draw variant with different layout and position
+0x800ce42c func opt_FormatTextLines hand builds text lines into buffer, handles % markers, measures width and line count
+0x800ce650 func opt_DrawMessageWindow hand message window draw from text lines, frame and glyph prims
+0x800ce828 func opt_ScreenStateTask hand large option screen state machine switching between sub-menus and transitions
+0x800cf600 func opt_ConfirmYesNoTask hand yes/no confirm task: left/right toggles, confirm applies, cancel returns
+0x800cf7dc func opt_ConfirmYesNoTask_2 hand second yes/no confirm task for another option prompt
+0x800cf968 func opt_DrawKeyConfig hand draws key-config screen: button names, assigned actions and cursor
+0x800cfcb0 func opt_CopyPadConfig hand copies pad configuration table between buffers
+0x800cfd30 func opt_LoadPadConfig hand loads current pad configuration from global into option working copy
+0x800cfda4 func opt_StorePadConfig hand stores working pad configuration back into global config
+0x800cfe1c func opt_KeyConfigInput hand key-config input handler: cursor moves, button assignment on confirm
+0x800d0094 func opt_KeyConfigTask hand key-config task: runs input handler and draw until cancel
+0x800d0184 func opt_DifficultyInput hand difficulty select input: left/right changes level, plays cursor sound
+0x800d0268 func opt_DifficultyTask hand difficulty select task: draws choices and applies on confirm
+0x800d0344 func opt_NextSelectInput hand three-option select input: left/right cycles value
+0x800d0424 func opt_NextSelectTask hand three-option select task: draws and applies value on confirm
+0x800d0500 func opt_DrawSoundLevels hand draws sound level bars for BGM and SE volume
+0x800d0850 func opt_SoundLevelInput hand sound level input: left/right adjusts volume, up/down changes row
+0x800d0ad0 func opt_SoundTask hand sound option task: runs input and draw, applies volume on exit
+0x800d0bec func opt_FourSelectInput hand four-option select input: left/right cycles value
+0x800d0cc8 func opt_FourSelectTask hand four-option select task: draws and applies value on confirm
+0x800d0da4 func opt_VibrationInput hand vibration toggle input: left/right toggles on/off, plays sound
+0x800d0ed0 func opt_VibrationTask hand vibration option task: draws toggle, applies setting on confirm

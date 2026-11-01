@@ -1,0 +1,50 @@
+F 800cb3b8 opt_DrawBackground USER_DEFINED 208
+F 800cb488 opt_MenuItemAnimTask USER_DEFINED 1096
+F 800cb8d0 opt_PortraitCursorTask USER_DEFINED 524
+F 800cbadc opt_CursorFollowTask USER_DEFINED 304
+F 800cbc0c opt_MenuLabelTask USER_DEFINED 732
+F 800cbef0 opt_MenuItemSpriteTask USER_DEFINED 1492
+F 800cc4c4 opt_DrawWindowFrame USER_DEFINED 856
+F 800cc81c opt_DrawWindowItems USER_DEFINED 948
+F 800ccbd8 opt_DrawOptionValues USER_DEFINED 716
+F 800cceac opt_DrawBorders USER_DEFINED 276
+F 800ccfc0 opt_ExitTask USER_DEFINED 320
+F 800cd100 opt_MainMenuTask USER_DEFINED 1480
+F 800cd6c8 opt_Init USER_DEFINED 892
+F 800cda44 opt_WindowSlideTask USER_DEFINED 912
+F 800cddd4 opt_SoundTestTask USER_DEFINED 820
+F 800ce108 opt_DrawWrapper USER_DEFINED 52
+F 800ce13c opt_DrawYesNo USER_DEFINED 344
+F 800ce294 opt_DrawYesNo_2 USER_DEFINED 408
+F 800ce42c opt_FormatTextLines USER_DEFINED 540
+F 800ce650 opt_DrawMessageWindow USER_DEFINED 472
+C 800ce42c
+F 800ce828 opt_ScreenStateTask USER_DEFINED 3544
+F 800cf600 opt_ConfirmYesNoTask USER_DEFINED 476
+F 800cf7dc opt_ConfirmYesNoTask_2 USER_DEFINED 396
+F 800cf968 opt_DrawKeyConfig USER_DEFINED 840
+F 800cfcb0 opt_CopyPadConfig USER_DEFINED 128
+F 800cfd30 opt_LoadPadConfig USER_DEFINED 116
+F 800cfda4 opt_StorePadConfig USER_DEFINED 120
+F 800cfe1c opt_KeyConfigInput USER_DEFINED 632
+C 800cfcb0
+C 800cfda4
+F 800d0094 opt_KeyConfigTask USER_DEFINED 240
+C 800cfd30
+C 800cfe1c
+F 800d0184 opt_DifficultyInput USER_DEFINED 228
+F 800d0268 opt_DifficultyTask USER_DEFINED 220
+C 800d0184
+F 800d0344 opt_NextSelectInput USER_DEFINED 224
+F 800d0424 opt_NextSelectTask USER_DEFINED 220
+C 800d0344
+F 800d0500 opt_DrawSoundLevels USER_DEFINED 848
+F 800d0850 opt_SoundLevelInput USER_DEFINED 640
+F 800d0ad0 opt_SoundTask USER_DEFINED 284
+C 800d0850
+F 800d0bec opt_FourSelectInput USER_DEFINED 220
+F 800d0cc8 opt_FourSelectTask USER_DEFINED 220
+C 800d0bec
+F 800d0da4 opt_VibrationInput USER_DEFINED 300
+F 800d0ed0 opt_VibrationTask USER_DEFINED 404
+C 800d0da4

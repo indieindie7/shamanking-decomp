@@ -1,0 +1,89 @@
+0x800ccc9c func train_InitModeA hand once-only scene init: clears flags, spawns update task cce94, HUD tasks, fades in
+0x800cce94 func train_UpdateModeA hand state-machine task spawning two fighter panels and cfa1c, waits intro, handles states
+0x800cd144 func train_UpdateFighterFlash hand per fighter timer: refills meters 0x6400 on trigger, counts down 0x5a hit-flash byte
+0x800cd2b4 func train_InitModeB hand once-only scene init like modeA, spawns task cd4b8, uses opposite fighter index
+0x800cd4b8 func train_UpdateModeB hand state-machine task spawning panels, handles pad button to restart via cd2b4
+0x800cda04 func train_ParseCommandText hand clears 6 shorts, walks Shift-JIS command string from d305c, sets button bit flags
+0x800cdb4c func train_InitModeC hand once-only scene init, spawns task cdd44, sets flags and HUD tasks
+0x800cdd44 func train_UpdateModeC hand state-machine task, sets panel states 5,6, waits flags, respawns panels
+0x800cdf64 func train_InitModeD hand once-only scene init for main training, spawns task ce0f8, HUD tasks
+0x800ce0f8 func train_UpdateMainMenuLoop hand huge state-machine task: spawns panels, command menu, per-state training control and exit
+0x800cf68c func train_ResetFighterMeters hand copies base health/power values for both fighters from character table
+0x800cf764 func train_UpdateMeterRefill hand task refilling both fighters meters after 30 frames when depleted
+0x800cfa1c func train_FighterPanelTask hand big per-fighter panel task, switches on state at +0x22, chooses fighter pointers
+0x800d0c24 func gui_SetSpriteFromTexInfo hand copies texture page, clut and rect info into sprite fields and globals
+0x800d0d68 func gui_WindowCreate hand constructs window box object via base ctor, sets vtable and rect
+0x800d0dd4 func gui_WindowSetRect hand copies x y w h four shorts into window object
+0x800d0e04 func gui_WindowDraw hand animates pulsing color counter, draws cursor and frame primitives via prim add
+0x800d0fac func gui_TextAlign hand shifts text x by width or half width depending on alignment bits
+0x800d102c func gui_TextCreate hand constructs text label object, sets font tpage/clut, string pointer, position, alignment
+0x800d11c0 func gui_TextSetString hand sets new string pointer and refreshes texture page fields and font load
+0x800d12bc func gui_TextSetSize hand sets glyph width/height, applies alignment offset, refreshes tpage fields
+0x800d142c func gui_TextCountChars hand counts characters of string skipping single-byte codes, doubles for 2-byte
+0x800d14b8 func gui_TextGetWidth hand computes pixel width of string line by glyph width, spaces eight
+0x800d1570 func gui_TextGetHeight hand computes height from number of line markers percent in string
+0x800d15fc func gui_TextIsFinished hand true if typewriter position reached string length or instant flag set
+0x800d1650 func gui_TextSkipToEnd hand sets typewriter position to full string length
+0x800d1698 func gui_TextDraw hand per-frame typewriter draw of string glyphs as sprites, handles percent line breaks
+0x800d1c5c func gui_BannerCreate hand constructs banner sprite object with fixed rect and texture, centers x
+0x800d1dc0 func gui_BannerDraw hand draws banner sprite, blinks via counter bit 0x10
+0x800d1ec4 func gui_TextBlinkTick hand advances blink counter and calls text draw every 16 frames
+0x800d1f04 func gui_WindowCreate_2 hand calls window ctor then installs a different vtable
+0x800d1f4c func gui_WindowBlinkTick hand advances counter and calls window draw every 16 frames
+0x800d1f8c func menu_HideAllItems hand sets hidden flag bit on all 16 item objects and cursor object
+0x800d2074 func menu_SelectPage hand switches active menu page, destroys previous items, builds new items and cursor position
+0x800d2164 func menu_GoBack hand returns to previously active menu page
+0x800d219c func menu_ResetSelection hand sets selected id to 0xff and clears choice byte
+0x800d21b4 func menu_SystemInit hand zeroes page table and state globals, stores string table pointer
+0x800d2210 func menu_RegisterPage hand appends page object into page table and increments count
+0x800d223c func menu_SetPageData hand stores data pointer into page object
+0x800d2244 func menu_BuildItems hand creates text label per entry and a cursor window for the page data
+0x800d2410 func menu_DestroyItems hand calls destructor virtual on each item object and cursor, clears slots
+0x800d24fc func menu_ShowItemDescription hand wraps index and calls description box virtual with item string, marks instant text
+0x800d259c func menu_WrapIndex hand wraps selection index within entry count both directions
+0x800d25ec func menu_GetActivePage hand returns active page object pointer from page table
+0x800d2610 func menu_HandleInput hand reads pad up/down, plays sound, moves cursor, confirm and cancel buttons
+0x800d27d8 func menu_ConfirmItem hand runs selected item callback, sets result id, switches page
+0x800d28a0 func menu_CreateDescriptionBox hand allocates description box object once, sets position 16,168
+0x800d2904 func menu_PageStateTask hand page state machine: open, wait, input, close; clears flags and hides items
+0x800d2a90 func menu_GetFlagBit2 hand returns menu flag word masked with 2
+0x800d2aa0 func menu_ShowDetailText hand shows item detail string and creates banner, choosing position by availability
+0x800d2c04 func menu_AdvanceDetailPage hand on confirm button advances to next detail page or skips text
+0x800d2e98 func menu_PageCreate hand constructs page object via base ctor, sets vtable and registers it
+0x800d2ee0 func menu_SystemInit_2 hand calls menu init and clears two box pointers
+0x800d2f0c func menu_NextItem hand increments selection, confirms item, hides description window flag
+0x800d2f78 func menu_Close hand destroys two help boxes, resets state, hides description box, sets state 1
+0x800d305c func menu_GetSelectedString hand returns string pointer for current selected item of active page
+0x800d30bc func menu_CreateHelpBox hand creates description box and help text and window if absent
+0x800d31f4 func menu_SetTextSpeed hand stores byte and sets typewriter counter of description text
+0x800d3250 func menu_ShowItemDescription_2 hand thin wrapper calling item description routine
+0x800d3278 func gui_DescriptionBoxCreate hand constructs description box via base ctor and sets vtable
+0x800d32b8 func gui_DescriptionBoxSetText hand sets text data, repositions text and window, resizes window to text height
+0x800d3418 func gui_DescriptionBoxCreateText hand creates text label centered inside description box
+0x800d35c8 func gui_DescriptionBoxCreateText_2 hand creates text label with different vtable variant
+0x800d3674 func gui_DescriptionBoxSetText_2 hand sign-extending wrapper for description set text
+0x800d3698 func gui_TextDraw_2 hand thin wrapper calling text draw
+0x800d36b8 func menu_BuildTopMenu hand inits menu, creates three pages from tables, selects page from saved id
+0x800d3834 func menu_BuildSubMenu hand inits menu, creates one page by index, confirms item
+0x800d391c func menu_IsActiveFlag2 hand returns flag bit 2 if an active page exists
+0x800d394c func menu_GetFlagBit100 hand returns menu flag word masked with 0x100
+0x800d3968 func menu_CreateYesNoPrompt hand creates banner, optional message text and window by choice id
+0x800d3ab0 func menu_ToggleBanner hand creates 0xa0,200 banner on zero else destroys existing banner
+0x800d3b54 func menu_BuildMoveList hand creates paired text labels for moves matching character, finds max height, creates window
+0x800d3d74 func menu_OpenMoveMenu hand records fighter, inits menu, creates page, selects page 0 at offset 0x10
+0x800d3e5c func menu_RebuildMoveMenu hand rebuilds page when param zero else steps to next item
+0x800d3f64 func menu_SetDescriptionState hand sets description box state 1 or 2
+0x800d3fb0 func gui_ObjDestroy hand destructor wrapper: base dtor then free if flag bit
+0x800d3ff8 func gui_TextDestroy hand sets text vtable, base dtor, free if flag bit
+0x800d404c func gui_ObjDestroy_2 hand destructor wrapper: base dtor then free
+0x800d4094 func gui_ObjDestroy_3 hand destructor wrapper: base dtor then free
+0x800d40dc func menu_PageCreate_2 hand page ctor variant installing vtable ccb94
+0x800d4118 func gui_ObjDestroy_4 hand destructor wrapper: base dtor then free
+0x800d4160 func gui_DescriptionBoxCreate_2 hand description box ctor variant installing vtable ccb5c
+0x800d419c func gui_TextDestroy_2 hand sets text vtable, base dtor, free if flag bit
+0x800d41f0 func gui_TextCreate_2 hand text ctor sign-extending args then vtable ccb2c
+0x800d426c func gui_ObjDestroy_5 hand destructor wrapper: base dtor then free
+0x800d431c func gui_BannerDestroy hand sets banner vtable, base dtor, free if flag bit
+0x800d4370 func gui_TextDestroy_3 hand sets text vtable, base dtor, free if flag bit
+0x800d43c4 func gui_TextCreate_3 hand text ctor sign-extending args then vtable ccaac
+0x800d4440 func gui_ObjDestroy_6 hand destructor wrapper: base dtor then free

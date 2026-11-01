@@ -1,0 +1,162 @@
+F 800cb8a8 air_UpdatePlayerStateA USER_DEFINED 776
+F 800cbbb0 air_TickSpawnDelay USER_DEFINED 88
+F 800cbc10 air_UpdatePlayerStateB USER_DEFINED 720
+F 800cbef0 air_InitPlayerSprites USER_DEFINED 604
+F 800cc2dc air_DrawTimer USER_DEFINED 272
+C 800d1a04
+F 800cc3f4 air_UpdateFallingItem USER_DEFINED 628
+F 800cc668 air_UpdateScrollingObject USER_DEFINED 472
+F 800cc848 air_UpdateBigObject USER_DEFINED 916
+F 800ccbe4 air_UpdateBackground USER_DEFINED 856
+F 800ccf3c air_MainGameTask USER_DEFINED 2948
+F 800cdac0 gfx_ShiftPolyUV USER_DEFINED 80
+F 800cdb10 air_LoadAndRun USER_DEFINED 1772
+C 800ce820
+C 800cdac0
+F 800ce1fc text_SjisToFontIndexA USER_DEFINED 240
+F 800ce2ec text_SjisToFontIndexB USER_DEFINED 240
+F 800ce3dc gfx_DrawFontChar USER_DEFINED 600
+C 800ce1fc
+C 800ce2ec
+F 800ce634 text_DrawStringW8 USER_DEFINED 192
+C 800ce3dc
+F 800ce6f4 text_DrawStringW12 USER_DEFINED 200
+C 800ce3dc
+F 800ce820 gfx_BuildGlyphPrimList USER_DEFINED 608
+F 800cea88 maki_UpdatePlayerSprite USER_DEFINED 1464
+F 800cf040 maki_UpdateCharacter3D USER_DEFINED 776
+F 800cf348 maki_InitSpriteSet USER_DEFINED 884
+F 800cf6c4 maki_UpdateFlyingItem USER_DEFINED 424
+F 800cf86c maki_UpdateTarget USER_DEFINED 1596
+F 800cfea8 maki_SpawnTargetRow USER_DEFINED 432
+F 800d0058 maki_ReadPatternStep USER_DEFINED 960
+C 800cfea8
+C 800cfea8
+C 800cfea8
+F 800d0420 maki_PatternController USER_DEFINED 620
+C 800d0058
+F 800d068c maki_DrawScore USER_DEFINED 292
+C 800d1a04
+F 800d07b0 maki_DrawTimer USER_DEFINED 904
+C 800d1a04
+F 800d0b38 maki_MainGameTask USER_DEFINED 1248
+F 800d1018 gfx_ShiftPolyUV_2 USER_DEFINED 80
+F 800d1068 maki_LoadAndRun USER_DEFINED 1520
+C 800ce820
+C 800d1018
+F 800d1658 quiz_LoadAndRun USER_DEFINED 940
+F 800d1a04 text_DrawNumberString USER_DEFINED 516
+F 800d1c08 quiz_MainGameTask USER_DEFINED 5336
+C 800d1a04
+C 800d1a04
+F 800d30e0 quiz_ProcessAnswers USER_DEFINED 2948
+C 800ce6f4
+F 800d3c64 quiz_DrawResultPanel USER_DEFINED 1524
+F 800d4258 result_SetFlagIfAllBits USER_DEFINED 52
+F 800d428c result_DrawTitleBar USER_DEFINED 196
+F 800d4350 result_DrawRankBanner USER_DEFINED 976
+F 800d4720 result_DrawScoreRows USER_DEFINED 2464
+C 800d4258
+C 800d7340
+C 800d7340
+C 800d7340
+C 800d7340
+C 800d7340
+C 800d7340
+F 800d50c0 result_PlayVoiceTask USER_DEFINED 224
+F 800d51a0 result_DrawPanelBackground USER_DEFINED 836
+F 800d54e4 result_CalcRankFromScore USER_DEFINED 296
+F 800d560c result_CalcRankFromScore_2 USER_DEFINED 312
+F 800d5744 result_LoadAndRun USER_DEFINED 1620
+C 800d560c
+C 800d54e4
+F 800d5da0 mini_StartSelectedGame USER_DEFINED 208
+F 800d5e78 mini_StartSelectMenu USER_DEFINED 44
+F 800d5ea4 result_DrawStatic USER_DEFINED 52
+F 800d5ed8 result_MainTask USER_DEFINED 2604
+F 800d6904 menu_IsPopupActive USER_DEFINED 24
+F 800d691c menu_PopupMoveLeft USER_DEFINED 104
+F 800d6984 menu_PopupMoveRight USER_DEFINED 104
+F 800d69ec menu_DrawSelectIcons USER_DEFINED 728
+F 800d6cc4 menu_DrawSlidingPanel USER_DEFINED 400
+F 800d6e54 menu_DrawButtonSprites USER_DEFINED 424
+F 800d6ffc menu_DrawCursorPanels USER_DEFINED 836
+F 800d7340 text_FormatNumberDigits USER_DEFINED 200
+F 800d7408 menu_DrawRankingTable USER_DEFINED 2220
+C 800d7340
+C 800d7340
+C 800d7340
+C 800d7340
+C 800d7340
+C 800d7340
+F 800d7cb4 menu_IsDialogActive USER_DEFINED 16
+F 800d7cc4 menu_CloseDialog USER_DEFINED 32
+F 800d7ce4 menu_UpdateSlideInDialog USER_DEFINED 448
+F 800d7ea4 menu_UpdateSlideInMessage USER_DEFINED 500
+F 800d8098 menu_SpawnMessageBox USER_DEFINED 100
+F 800d812c menu_DrawCursorRing USER_DEFINED 660
+F 800d83c0 mini_SetSelectIndex5 USER_DEFINED 16
+F 800d83d0 mini_ReturnToSelectMenu USER_DEFINED 48
+C 800d83c0
+F 800d8400 mini_SelectMenuLoadAndRun USER_DEFINED 2412
+C 800d6904
+C 800d691c
+C 800d6904
+C 800d6984
+C 800d7cb4
+C 800d7cb4
+C 800d7cc4
+F 800d8d6c sync_LoadAndRun USER_DEFINED 1440
+F 800d930c sync_ShuffleArray USER_DEFINED 180
+F 800d93c0 sync_MainGameTask USER_DEFINED 4452
+C 800d930c
+C 800d930c
+C 800d930c
+C 800d1a04
+C 800d1a04
+F 800da524 runner_UpdatePlayer USER_DEFINED 2900
+F 800db078 runner_DrawPlayerShadow USER_DEFINED 300
+F 800db1a4 runner_UpdateRivalModel USER_DEFINED 880
+F 800db51c runner_UpdateRivalSimple USER_DEFINED 464
+F 800db6ec runner_DrawRivalShadow USER_DEFINED 300
+F 800db820 runner_UpdateScorePopup USER_DEFINED 716
+C 800dbaec
+F 800dbaec runner_DrawPopupSprite USER_DEFINED 1960
+F 800dc294 runner_UpdateCountdownGo USER_DEFINED 672
+C 800dc750
+F 800dc534 runner_UpdateFinishText USER_DEFINED 540
+C 800dc750
+F 800dc750 text_DrawScaledGlyphs USER_DEFINED 708
+F 800dca14 runner_DrawGroundStrip USER_DEFINED 156
+F 800dcab0 runner_QueueDrawGround USER_DEFINED 48
+F 800dcae0 runner_LoadAndRun USER_DEFINED 1272
+F 800dcfd8 runner_MainGameTask USER_DEFINED 4528
+C 800dffc8
+C 800dfdcc
+C 800dfe38
+C 800dfe38
+C 800dfdcc
+C 800dfdcc
+C 800dffc8
+C 800d1a04
+C 800d1a04
+F 800de188 runner_DrawHud USER_DEFINED 384
+F 800de310 runner_UpdatePlayerRival2 USER_DEFINED 2364
+F 800dec4c runner_DrawPlayer2Shadow USER_DEFINED 264
+F 800ded5c runner_UpdateModelAnimated USER_DEFINED 1560
+F 800df374 runner_DrawModelShadow USER_DEFINED 244
+F 800df470 runner_UpdateRivalAI USER_DEFINED 568
+F 800df6a8 runner_DrawRivalShadow2 USER_DEFINED 264
+F 800df7b0 runner_UpdateObstacle USER_DEFINED 660
+F 800dfa44 runner_DrawObstacle USER_DEFINED 904
+F 800dfdcc runner_SpawnObstacle USER_DEFINED 108
+F 800dfe38 runner_SpawnDustEffect USER_DEFINED 84
+F 800dfe8c runner_UpdateDustEffect USER_DEFINED 148
+F 800dff20 runner_DrawDustEffect USER_DEFINED 168
+F 800dffc8 runner_SpawnBackgroundTree USER_DEFINED 180
+F 800e007c runner_UpdateBackgroundTree USER_DEFINED 92
+F 800e00d8 runner_DrawBackgroundTree USER_DEFINED 348
+F 800e0234 runner_InitFinishLine USER_DEFINED 292
+F 800e0358 runner_DrawFinishMarkers USER_DEFINED 472
+F 800e0530 runner_UpdateGroundTiles USER_DEFINED 476
+F 800e070c runner_DrawGroundTile USER_DEFINED 160

@@ -1,0 +1,119 @@
+F 800cbabc story_ClearXapCache USER_DEFINED 76
+F 800cbb24 story_LoadXapToCache USER_DEFINED 208
+F 800cbbf4 story_FindCachedXap USER_DEFINED 168
+F 800cbc9c story_UpdateSpriteTweenA USER_DEFINED 688
+F 800cbf4c story_UpdateSpriteTweenB USER_DEFINED 824
+F 800cc28c story_DrawBlinkCursor USER_DEFINED 108
+F 800cc2f8 story_DrawPortraitFromTable USER_DEFINED 228
+F 800cc3e4 story_UpdateTextWindow USER_DEFINED 1388
+F 800cc950 story_UpdateFadeBars USER_DEFINED 276
+F 800cca64 story_UpdateImageFade USER_DEFINED 596
+F 800cccb8 script_OpInitPointers USER_DEFINED 56
+F 800cccf0 script_OpLoadAssieAO USER_DEFINED 192
+F 800cce20 script_OpExitOnButton USER_DEFINED 48
+F 800cce50 script_OpWaitConfirmPress USER_DEFINED 88
+F 800ccea8 script_OpJump USER_DEFINED 60
+F 800cd3c4 script_OpResetXapCache USER_DEFINED 44
+C 800cbabc
+F 800cd408 script_OpHideSpriteSlots USER_DEFINED 40
+F 800cd430 script_OpPreloadXap USER_DEFINED 316
+C 800cbb24
+F 800cd56c script_OpShowBackground USER_DEFINED 248
+C 800cbbf4
+F 800cd6dc script_OpShowSlotSprite USER_DEFINED 104
+F 800cd808 script_OpMoveSlotSprite USER_DEFINED 108
+F 800cd874 script_OpResetPortraitSlots USER_DEFINED 64
+F 800cd8b4 script_OpPreloadXap_2 USER_DEFINED 316
+C 800cbb24
+F 800cd9f0 script_OpShowPortrait USER_DEFINED 436
+C 800cbbf4
+F 800cdbcc script_OpSetPortraitX USER_DEFINED 84
+F 800cdc20 script_OpSetPortraitY USER_DEFINED 84
+F 800cdc74 script_OpMovePortraitX USER_DEFINED 108
+F 800cdce0 script_OpMovePortraitY USER_DEFINED 108
+F 800cdd7c script_OpFadePortraitDarken USER_DEFINED 104
+F 800cdde4 script_OpFadePortraitLighten USER_DEFINED 132
+F 800cdfa8 script_OpYesNoChoice USER_DEFINED 252
+F 800ce0e8 script_OpFadeOutWait USER_DEFINED 112
+F 800ce158 script_OpPlayBgm USER_DEFINED 48
+F 800ce1d8 script_OpStopBgm USER_DEFINED 32
+F 800ce1f8 script_OpFadeBgm USER_DEFINED 48
+F 800ce240 script_OpLoadAnimFile USER_DEFINED 420
+F 800ce3e4 script_OpPlaySfx USER_DEFINED 44
+F 800ce410 script_OpStopSfx USER_DEFINED 32
+F 800ce430 script_OpResetEffectSlots USER_DEFINED 92
+F 800ce48c script_OpSetSoundParam USER_DEFINED 48
+F 800ce4e4 script_OpSetEffectScale USER_DEFINED 60
+F 800ce520 script_OpStopVoice USER_DEFINED 32
+F 800ce558 script_OpFadeIn USER_DEFINED 52
+F 800ce58c script_OpFadeOut USER_DEFINED 52
+F 800ce5c0 script_OpFadeToColor USER_DEFINED 68
+F 800ce604 script_OpStartBattle USER_DEFINED 448
+F 800ce7c4 script_OpLoadAoChangeScene USER_DEFINED 248
+F 800ce8bc script_OpLoadAoChangeScene_2 USER_DEFINED 232
+F 800ce9a4 script_OpChangeScene USER_DEFINED 148
+F 800cea38 script_OpEndChapterToSave USER_DEFINED 276
+F 800cebac script_OpDrawCachedXapImage USER_DEFINED 24
+F 800cebc4 script_OpDrawCachedXapImage_2 USER_DEFINED 80
+C 800cbbf4
+F 800cec14 script_OpStartFadeBars USER_DEFINED 116
+F 800cec88 script_OpStartImageFade USER_DEFINED 148
+F 800ced1c script_OpKillFadeTasks USER_DEFINED 32
+F 800ced3c script_OpSetStoryFlag USER_DEFINED 60
+F 800ceebc script_OpSelectNumber USER_DEFINED 268
+F 800cf054 stub_800cf054 USER_DEFINED 8
+F 800cf05c stub_800cf05c USER_DEFINED 8
+F 800cf064 story_InitScriptState USER_DEFINED 196
+C 800cd408
+C 800cd874
+C 800cbabc
+F 800cf128 story_ResetScriptAndStats USER_DEFINED 72
+C 800cf064
+F 800cf170 script_ReadOperand USER_DEFINED 76
+F 800cf1bc script_ExecuteOps USER_DEFINED 1208
+C 800cf170
+C 800cf170
+C 800cf170
+C 800cf170
+C 800cf170
+C 800cf170
+C 800cf170
+C 800cf170
+C 800cf170
+C 800cf05c
+C 800cf170
+C 800cccb8
+C 800cf054
+F 800cf674 story_ModeTask USER_DEFINED 808
+C 800cf128
+C 800cf064
+C 800cf1bc
+F 800cf99c story_DrawCardIconBlink USER_DEFINED 76
+F 800cf9e8 story_FormatMenuText USER_DEFINED 536
+F 800cfc08 story_DrawMenuWindow USER_DEFINED 472
+C 800cf9e8
+F 800cfde0 story_DrawBackdrop USER_DEFINED 52
+F 800cfe1c story_DrawYesNoButtons USER_DEFINED 368
+F 800cff8c story_DrawSaveBackdrop USER_DEFINED 52
+F 800cffc0 story_DrawSlotTabs USER_DEFINED 372
+F 800d0134 story_DrawSlotDetail USER_DEFINED 576
+F 800d0374 story_DrawNumber USER_DEFINED 168
+F 800d041c story_DrawSlotStatNumbers USER_DEFINED 568
+C 800d0374
+C 800d0374
+C 800d0374
+F 800d0654 story_LoadSlotToCurrent USER_DEFINED 156
+F 800d06f0 story_StoreCurrentToSlot USER_DEFINED 440
+F 800d08a8 story_SlotSelectTask USER_DEFINED 712
+C 800d0654
+F 800d0b70 story_MergeSavedProgress USER_DEFINED 236
+F 800d0c5c story_SaveMenuTask USER_DEFINED 1360
+C 800d0b70
+F 800d11ac story_LoadCardGraphicsTask USER_DEFINED 324
+F 800d12f0 story_MemcardSaveTask USER_DEFINED 1012
+C 800d06f0
+F 800d16e4 story_MemcardResultTask USER_DEFINED 696
+F 800d199c story_MemcardFormatTask USER_DEFINED 1384
+C 800d0b70
+F 800d1f04 story_RetryYesNoTask USER_DEFINED 832
+F 800d2244 story_LoadingCardTask USER_DEFINED 668

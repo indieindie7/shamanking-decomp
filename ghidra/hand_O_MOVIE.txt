@@ -1,0 +1,25 @@
+0x800cade8 func movie_PlayStrFile hand opens \SKING.STR;1, inits decoder, loops decode and display frames until end, then cleanup
+0x800cb19c func movie_DecoderInit hand zeroes decoder state, resets MDEC, sets DMA callback, clears video buffers, starts stream
+0x800cb264 func movie_WaitFrameFlip hand busy-waits timeout counter for flip flag then swaps display buffer index and rect
+0x800cb308 func movie_StrCallbackAdvanceStrip hand per-strip callback, advances x offset, uploads decoded strip to VRAM via LoadImage-like call
+0x800cb488 func movie_DecodeNextFrame hand polls frame fetch up to 2000 times, toggles buffer, runs VLC decode, releases frame
+0x800cb51c func movie_GetStreamFrame hand polls ring buffer for frame, tracks size changes, clears VRAM areas, sets rect dimensions
+0x800cb6c0 func movie_StartStreamRead hand retries sector read call with 0x1e0 sectors until accepted
+0x800cb6f4 func movie_PlayEntry hand clears global flags, calls movie_PlayStrFile, resets sound volume
+0x800cb760 func movie_LzDecompress hand byte-oriented LZ decompress from table at 0x800cc270 then XOR delta 16-bit pixels
+0x800cb850 func DecDCTReset hand resets MDEC via cbb10 option, with bios reset call when param zero
+0x800cb910 func DecDCTPutEnv hand copies two 16-word quant tables to MDEC buffer then DMA in each
+0x800cb9a8 func DecDCTin hand sets output depth and signed bits in header word then DMA to MDEC in
+0x800cba24 func DecDCTout hand thin wrapper to MDEC out DMA routine
+0x800cba44 func DecDCTinSync hand waits MDEC in sync or returns status bit 29
+0x800cba80 func DecDCToutSync hand waits MDEC out sync or returns DMA1 busy bit
+0x800cbac8 func DecDCToutCallback hand registers DMA callback for channel 0 via bios helper
+0x800cbaec func DecDCTinCallback hand registers DMA callback for channel 1 via bios helper
+0x800cbb10 func mdec_ResetImpl hand resets MDEC control and DMA regs; string MDEC_rest:bad option(%d)
+0x800cbc00 func mdec_DmaInStart hand waits in sync, enables DMA0 and starts transfer of words to MDEC
+0x800cbc90 func mdec_DmaOutStart hand waits out sync, enables DMA1 and starts transfer from MDEC
+0x800cbd1c func mdec_WaitInSync hand polls MDEC status busy bit with timeout; string MDEC_in_sync
+0x800cbdb0 func mdec_WaitOutSync hand polls DMA1 busy bit with timeout; string MDEC_out_sync
+0x800cbe44 func mdec_GetStatus hand returns MDEC status register
+0x800cbe5c func mdec_TimeoutReset hand prints %s timeout then resets MDEC and DMA registers
+0x800cbf10 func DecDCTvlc hand variable length decodes MPEG bitstream frame into macroblock coefficient words

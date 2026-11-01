@@ -1,0 +1,104 @@
+0x800cb8a8 func air_UpdatePlayerStateA hand AIR minigame player task: sets state 0x20/0x30/0x50 animation via func_8005dea8, draws sprite via DAT_800e6d00
+0x800cbbb0 func air_TickSpawnDelay hand AIR task counts 0x14 frames then kills itself; sets param+8 to -16 delete flag
+0x800cbc10 func air_UpdatePlayerStateB hand AIR player task: switch on state 0x80/0x90/0xa0 chooses animation, spawns effect via func_80015624
+0x800cbef0 func air_InitPlayerSprites hand AIR: inits 8 sprite structs from table DAT_800e08d4, then draws them each frame
+0x800cc2dc func air_DrawTimer hand AIR draws time string "%02d:%02d" from frame counter /3 via FUN_800d1a04
+0x800cc3f4 func air_UpdateFallingItem hand AIR falling object task: state 2 integrates velocity, deletes when off screen below -0x78
+0x800cc668 func air_UpdateScrollingObject hand AIR moving object task: init velocity left/right by side, copies 0x24-byte template, draws
+0x800cc848 func air_UpdateBigObject hand AIR object task: copies template from DAT_801cc920, horizontal velocity by side, flags 0x800000
+0x800ccbe4 func air_UpdateBackground hand AIR scenery task: 900 frame cycle advances stage index at +0x295, picks random tint from table
+0x800ccf3c func air_MainGameTask hand AIR main game state machine switch on state; init player, spawn objects, handle pad and timer
+0x800cdac0 func gfx_ShiftPolyUV hand adds offset to byte and short fields of each 8-byte entry of a primitive list
+0x800cdb10 func air_LoadAndRun hand AIR minigame loader: loads MINI\AIR\AIR.XAP and SND\MINI.XAP through load stages, launches game tasks
+0x800ce1fc func text_SjisToFontIndexA hand maps Shift-JIS code via range table DAT_800e0a1c to font glyph index; 0x8145 ->5, 0x815b ->0x1b
+0x800ce2ec func text_SjisToFontIndexB hand same range-table lookup with second table DAT_800e0a4c for another font; 0x8145 ->5, 0x815b ->0x1b
+0x800ce3dc func gfx_DrawFontChar hand builds sprite-like packet (code 0x2e/0x35 style quad) for one glyph and links into OT via func_8008c164
+0x800ce634 func text_DrawStringW8 hand draws Shift-JIS string with 8 pixel glyph advance calling FUN_800ce3dc per char
+0x800ce6f4 func text_DrawStringW12 hand draws Shift-JIS string with 12 pixel glyph advance calling FUN_800ce3dc per char
+0x800ce820 func gfx_BuildGlyphPrimList hand provisional builds list of glyph primitives from int array, returns count
+0x800cea88 func maki_UpdatePlayerSprite hand MAKI minigame player task uses DAT_800e6d0c; state 0x30 sounds 0x8102, animation switching, draws via func_8008c164
+0x800cf040 func maki_UpdateCharacter3D hand MAKI character model task: inits model at DAT_801c0800, picks animation from table DAT_800e0ab4, queues draw
+0x800cf348 func maki_InitSpriteSet hand MAKI: initializes 8 sprite structs from DAT_800e0ac0, then draws icons via func_8008c564
+0x800cf6c4 func maki_UpdateFlyingItem hand MAKI item task: copies template DAT_801cc9f8, random initial velocity via rand, draws
+0x800cf86c func maki_UpdateTarget hand MAKI target task: accumulates timer, position from table DAT_800e0b00, three lane objects
+0x800cfea8 func maki_SpawnTargetRow hand MAKI: shuffles 3 pattern entries with rand, spawns up to three FUN_800cf86c tasks per lane
+0x800d0058 func maki_ReadPatternStep hand MAKI: reads pattern table entry, spawns targets by opcode 0/1/2, returns delay for next step
+0x800d0420 func maki_PatternController hand MAKI task: advances difficulty level at +0x266 by timer table DAT_800e0d2c, runs pattern steps
+0x800d068c func maki_DrawScore hand MAKI draws score string "<%03d=" at top via FUN_800d1a04
+0x800d07b0 func maki_DrawTimer hand MAKI draws time string "%02d>%02d?" from frame counter, 2P variant copies templates
+0x800d0b38 func maki_MainGameTask hand MAKI main state machine: inits state, spawns controller/score/timer tasks, then runs phases
+0x800d1018 func gfx_ShiftPolyUV_2 hand identical to FUN_800cdac0: adds offset to byte/short fields of each 8-byte entry
+0x800d1068 func maki_LoadAndRun hand MAKI minigame loader: loads MINI\MAKI\MAKI.XAP and SND\MINI.XAP, sets up tasks and results
+0x800d1658 func quiz_LoadAndRun hand quiz minigame loader: loads MINI\QUIZ.XAP, sound bank, starts quiz tasks
+0x800d1a04 func text_DrawNumberString hand draws string of digit glyph sprites (code 0x64 SPRT with 0xe100 draw mode) at screen position
+0x800d1c08 func quiz_MainGameTask hand quiz main game state machine, formats "%1d" and "%04d", draws question/answer boxes via func_8008c164
+0x800d30e0 func quiz_ProcessAnswers hand quiz task large state machine handling answer selection arrays and scoring
+0x800d3c64 func quiz_DrawResultPanel hand quiz draws panel polys for two players, deletes task when counter zero
+0x800d4258 func result_SetFlagIfAllBits hand sets bit 0x1000 in DAT_800a3d80 if low 5 bits of DAT_800a3d86 all set
+0x800d428c func result_DrawTitleBar hand result screen draws title banner from template DAT_800cb1d4, slides left until -0x3c
+0x800d4350 func result_DrawRankBanner hand result screen draws banner by rank switch using minigame index DAT_800bf5f5-0xf
+0x800d4720 func result_DrawScoreRows hand result screen draws score rows from template DAT_800cb240 with digit sprites for 3 entries
+0x800d50c0 func result_PlayVoiceTask hand result task: state machine plays voice ids from tables DAT_800e67c8/d4 via func_8002554c then deletes
+0x800d51a0 func result_DrawPanelBackground hand result draws two background SPRT panels (code 0x64, mode 0xe1000008) OT priority 0xb/0xc
+0x800d54e4 func result_CalcRankFromScore hand converts record by float ops to percent of DAT_800a3fc0, returns rank 1-4 by 90/60/30 thresholds
+0x800d560c func result_CalcRankFromScore_2 hand same percent-to-rank 1-4 conversion; returns 0 if record below reference or zero
+0x800d5744 func result_LoadAndRun hand result screen loader: loads SND\MINI.XAP and MINI\MINIRES.XAP, sets up result tasks
+0x800d5da0 func mini_StartSelectedGame hand starts minigame loader by DAT_800bf5f5-0xf: runn, air, maki, quiz, sync via func_8001519c
+0x800d5e78 func mini_StartSelectMenu hand schedules minigame select menu FUN_800d8400 via func_8001519c
+0x800d5ea4 func result_DrawStatic hand queues static polygons DAT_800e67ec to OT layer 0x14
+0x800d5ed8 func result_MainTask hand result screen main task: shows records, loops 6 entries, handles input and sprites
+0x800d6904 func menu_IsPopupActive hand returns whether popup state byte at +0x10a of DAT_800e6d3c nonzero
+0x800d691c func menu_PopupMoveLeft hand if idle sets slide offset -0x80 and decrements selection at +0x10c, starts transition
+0x800d6984 func menu_PopupMoveRight hand if idle sets slide offset 0x80 and increments selection at +0x10c, starts transition
+0x800d69ec func menu_DrawSelectIcons hand draws minigame select icons from templates with selected highlight, OT layer 0xd
+0x800d6cc4 func menu_DrawSlidingPanel hand draws two SPRT panels sliding by +0x26 offset, mode 0xe1000088
+0x800d6e54 func menu_DrawButtonSprites hand builds sprite packets from templates, sets position 0x40,0x3c, draws by state +0x10a
+0x800d6ffc func menu_DrawCursorPanels hand draws two SPRT background panels (mode 0xe100000d) and cursor, OT layers 0xb/0xc
+0x800d7340 func text_FormatNumberDigits hand converts uint to digit bytes right aligned with leading blanks, pads with param_4
+0x800d7408 func menu_DrawRankingTable hand draws 3-row table of digit sprites with polys, uses digits and text templates
+0x800d7cb4 func menu_IsDialogActive hand returns DAT_800e6d40 != 0
+0x800d7cc4 func menu_CloseDialog hand sets state byte +0x10a of dialog DAT_800e6d40 to 2 if active
+0x800d7ce4 func menu_UpdateSlideInDialog hand dialog slides in from -300 by 0x30 per frame, play sound 7, draws box and text
+0x800d7ea4 func menu_UpdateSlideInMessage hand same slide-in message box behaviour with fields in other layout, draws text via func_80061674
+0x800d8098 func menu_SpawnMessageBox hand spawns FUN_800d7ea4 task, stores text pointer and layer in DAT_800e6d7c
+0x800d812c func menu_DrawCursorRing hand draws multiple sprite quads (code 0xf layer) for selection frame
+0x800d83c0 func mini_SetSelectIndex5 hand sets DAT_800e6d30 = 5
+0x800d83d0 func mini_ReturnToSelectMenu hand sets select index 5 and schedules select menu FUN_800d8400
+0x800d8400 func mini_SelectMenuLoadAndRun hand minigame select menu loader: MINI\MINISEL.XAP and MINI\MINIOP.XAP, init state, cursor loops
+0x800d8d6c func sync_LoadAndRun hand sync minigame loader: loads MINI\SYNC.XAP via func_80023010 and starts game tasks
+0x800d930c func sync_ShuffleArray hand shuffles byte array by swapping random pairs with rand, count n+4 times
+0x800d93c0 func sync_MainGameTask hand sync minigame main state machine with timer "%02d:%02d" and score "%3d" strings
+0x800da524 func runner_UpdatePlayer hand RUNN player character task: state machine with pad bits, jump, hit; queues draw FUN_800db078
+0x800db078 func runner_DrawPlayerShadow hand projects player 3D position via GTE helpers and draws shadow sprite
+0x800db1a4 func runner_UpdateRivalModel hand RUNN rival model task: loads model at DAT_8017c800, animation by rival id, queues draw
+0x800db51c func runner_UpdateRivalSimple hand RUNN rival controller: state 0/1 starts anim 1/2 by pad flags, plays sound 0x4112
+0x800db6ec func runner_DrawRivalShadow hand projects rival position and draws shadow; same as FUN_800db078 with other fields
+0x800db820 func runner_UpdateScorePopup hand RUNN popup task: bounces with sine from func_80078e0c, draws via FUN_800dbaec
+0x800dbaec func runner_DrawPopupSprite hand draws scaled popup sprite polys with rotation using sin table, links to OT layer
+0x800dc294 func runner_UpdateCountdownGo hand RUNN intro text task: scales by sine, fades, state 0-2, then calls FUN_800dc750
+0x800dc534 func runner_UpdateFinishText hand RUNN end text task: scale and fade over 0x1e frames then deletes, draws via FUN_800dc750
+0x800dc750 func text_DrawScaledGlyphs hand draws scaled glyph quad sequence (packet code 0x82a0) from SJIS-like string
+0x800dca14 func runner_DrawGroundStrip hand projects with GTE helpers and draws ground via func_8008dccc using table DAT_800bf418
+0x800dcab0 func runner_QueueDrawGround hand queues FUN_800dca14 draw task via func_8001470c
+0x800dcae0 func runner_LoadAndRun hand RUNN minigame loader: loads MINI\RUNN.XAP stages, model data, starts tasks
+0x800dcfd8 func runner_MainGameTask hand RUNN main state machine with strings <(P<d, %02d<%02d=, %04d>; timer score distance
+0x800de188 func runner_DrawHud hand sets up GTE matrix and draws HUD polygon sets DAT_800e6bc4.. via func_8008c214
+0x800de310 func runner_UpdatePlayerRival2 hand RUNN character task: state 0-2, accelerates by pad, adds speed to parent position +0x4c
+0x800dec4c func runner_DrawPlayer2Shadow hand projects character position and draws shadow, same pattern as FUN_800db078
+0x800ded5c func runner_UpdateModelAnimated hand RUNN model task: loads model at DAT_8016c800, animation 0x16, follows target position
+0x800df374 func runner_DrawModelShadow hand builds projection from position and draws shadow polys via func_8008c564
+0x800df470 func runner_UpdateRivalAI hand RUNN rival state machine: anim 10/0xb, speed from parent, switches by pad flags
+0x800df6a8 func runner_DrawRivalShadow2 hand projects rival position and draws shadow via func_80079abc and func_8008c564
+0x800df7b0 func runner_UpdateObstacle hand RUNN obstacle task: sets position from table DAT_800e6aac, registers in parent list at +0x28
+0x800dfa44 func runner_DrawObstacle hand projects obstacle position through GTE matrix and draws 4 corner poly via func_8008c164
+0x800dfdcc func runner_SpawnObstacle hand spawns FUN_800df7b0 task, stores parent, type byte and lane index
+0x800dfe38 func runner_SpawnDustEffect hand spawns FUN_800dfe8c task, stores parent pointer and position pointer
+0x800dfe8c func runner_UpdateDustEffect hand dust animation frame counter every 4 ticks; deletes after 3 frames
+0x800dff20 func runner_DrawDustEffect hand projects dust position and draws sprite with frame*64 offset via func_8008c564
+0x800dffc8 func runner_SpawnBackgroundTree hand spawns scenery task FUN_800e007c at x from rand lane when within view; returns next x
+0x800e007c func runner_UpdateBackgroundTree hand scenery task: deletes when scrolled behind camera at DAT_800ab4cc-0xc00
+0x800e00d8 func runner_DrawBackgroundTree hand projects tree position and draws quad with two sizes by type via func_8008c164
+0x800e0234 func runner_InitFinishLine hand generates 13 unique random x positions using rand, then queues FUN_800e0358
+0x800e0358 func runner_DrawFinishMarkers hand draws 13 marker quads along ground with UV from grid index /9 and %9
+0x800e0530 func runner_UpdateGroundTiles hand ground scroll task: animates VRAM row via func_8007e3e4, spawns two tile draw tasks
+0x800e070c func runner_DrawGroundTile hand projects tile origin and draws ground via func_8008dccc with data DAT_800f4808

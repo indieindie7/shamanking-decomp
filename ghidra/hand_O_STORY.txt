@@ -1,0 +1,85 @@
+0x800cbabc func story_ClearXapCache hand zeroes 20 ten-byte cache entries (name plus chunk count) and resets cached-chunk counter DAT_800d2f24
+0x800cbb24 func story_LoadXapToCache hand sprintf STORY\%s.XAP, loads file into chunks, records name and chunk count in cache table
+0x800cbbf4 func story_FindCachedXap hand strcmp name against cache entries, returns chunk memory address or 0 if not cached
+0x800cbc9c func story_UpdateSpriteTweenA hand per-frame timers and divides interpolate slot position and scale between two keys, draws sprite via 0x8008c164
+0x800cbf4c func story_UpdateSpriteTweenB hand like TweenA for second image slot, builds local prim and draws via 0x800625cc
+0x800cc28c func story_DrawBlinkCursor hand draws prim whose colour pulses from frame counter (&3)*16-0x80, increments task counter
+0x800cc2f8 func story_DrawPortraitFromTable hand when DAT_800bf658 set, reads icon uv and clut from 6-byte table, draws one sprite prim
+0x800cc3e4 func story_UpdateTextWindow hand switch-state task builds message window rect, follows _DAT_800bf650 text id, draws frame and glyph prims
+0x800cc950 func story_UpdateFadeBars hand timed interpolated height letterbox bars drawn as two prims; kills own task when timer reaches zero
+0x800cca64 func story_UpdateImageFade hand uploads image via LoadImage, then timed alpha and size interpolated draw until timer ends
+0x800cccb8 func script_OpInitPointers hand story script op: sets script data section pointers from header offsets, returns 1
+0x800cccf0 func script_OpLoadAssieAO hand script op: sprintf ASSIE\%s.AO, loads to 0x8018e000, resets script pointers and state
+0x800cce20 func script_OpExitOnButton hand script op: if pad bit 0x40 set, switches task to scene _DAT_800bf468 (return to previous mode)
+0x800cce50 func script_OpWaitConfirmPress hand script op: waits pad confirm 0x20, plays sound effect and returns 2 (advance), else 0
+0x800ccea8 func script_OpJump hand script op: sets script pointer from jump table entry indexed by operand
+0x800cd3c4 func script_OpResetXapCache hand script op: calls story_ClearXapCache and sets DAT_800bf659
+0x800cd408 func script_OpHideSpriteSlots hand script op: clears active flag +0x21 of both image slot objects at 0x800bf640
+0x800cd430 func script_OpPreloadXap hand script op state machine: fade out, then story_LoadXapToCache of named file, returns 1 when loaded
+0x800cd56c func script_OpShowBackground hand script op: finds cached xap, LoadImage to slot VRAM, activates image slot with default colour and scale 0x1000
+0x800cd6dc func script_OpShowSlotSprite hand script op: activates slot sprite object, sets colour, size from operands, dirty flag
+0x800cd808 func script_OpMoveSlotSprite hand script op: sets slot sprite target x and timer or y from operands, dirty flag
+0x800cd874 func script_OpResetPortraitSlots hand script op: loops two portrait objects at 0x800bf648 clearing fade flag, setting colours 0x80
+0x800cd8b4 func script_OpPreloadXap_2 hand duplicate of script_OpPreloadXap: fade then load named xap into cache
+0x800cd9f0 func script_OpShowPortrait hand script op: loads cached xap, LoadImage, sets portrait object centred position and fade-in params
+0x800cdbcc func script_OpSetPortraitX hand script op: sets portrait target x and current x from operand, timer 1
+0x800cdc20 func script_OpSetPortraitY hand script op: sets portrait target y and current y from operand, timer 1
+0x800cdc74 func script_OpMovePortraitX hand script op: sets portrait x target with duration operand, dirty flag
+0x800cdce0 func script_OpMovePortraitY hand script op: sets portrait y target with duration operand, dirty flag
+0x800cdd7c func script_OpFadePortraitDarken hand script op: sets portrait colour 0 and fade target and duration from operand
+0x800cdde4 func script_OpFadePortraitLighten hand script op: sets portrait colour back to 0x80 and fade target and duration from operand
+0x800cdfa8 func script_OpYesNoChoice hand script op: toggles choice at script var +2 with left/right pad, confirm 0x20 returns 2, draws cursor
+0x800ce0e8 func script_OpFadeOutWait hand script op: starts fade then waits for fade flag DAT_800bf721 to clear
+0x800ce158 func script_OpPlayBgm hand script op: calls sound routine 0x8002554c with two operands (track, volume)
+0x800ce1d8 func script_OpStopBgm hand script op: calls 0x800254ec with no args, returns 1
+0x800ce1f8 func script_OpFadeBgm hand script op: calls 0x80025508 with two operands (frames, volume)
+0x800ce240 func script_OpLoadAnimFile hand script op state machine: fade out, load file to 0x800ee000, init animation player
+0x800ce3e4 func script_OpPlaySfx hand script op: plays sound effect id from operand via 0x80025dec
+0x800ce410 func script_OpStopSfx hand script op: calls sound stop routine 0x80026024
+0x800ce430 func script_OpResetEffectSlots hand script op: loops 0x18 slots calling 0x800715fc(i,0,0) and 0x80070728(i)
+0x800ce48c func script_OpSetSoundParam hand script op: calls 0x8002607c with 0 and two operands
+0x800ce4e4 func script_OpSetEffectScale hand script op: halves operand and sets effect slot 0x11 params via 0x800715fc
+0x800ce520 func script_OpStopVoice hand script op: calls 0x80026114 with 0
+0x800ce558 func script_OpFadeIn hand script op: screen fade-in using 0x80024d6c with two operands and colour table 0x80091a90
+0x800ce58c func script_OpFadeOut hand script op: screen fade-out using 0x80024ed4 with two operands and colour table
+0x800ce5c0 func script_OpFadeToColor hand script op: screen fade with four operands and colour table 0x80091a90
+0x800ce604 func script_OpStartBattle hand script op: fade, fills two fighter structs from operands, loads ASSIE ao, switches to battle scene
+0x800ce7c4 func script_OpLoadAoChangeScene hand script op: fade, sprintf ASSIE\%s.AO, then task switch to another scene
+0x800ce8bc func script_OpLoadAoChangeScene_2 hand script op: fade, stores two operands, sprintf ASSIE\%s.AO, switch to a different scene
+0x800ce9a4 func script_OpChangeScene hand script op: fade then task switch to scene without loading any ao file
+0x800cea38 func script_OpEndChapterToSave hand script op: fade, sets flag DAT_800a3dc3, loads ASSIE ao, switches to save loading task
+0x800cebac func script_OpDrawCachedXapImage hand script op: finds cached xap, LoadImage to 0x801b6000, uploads image
+0x800cebc4 func script_OpDrawCachedXapImage_2 hand register-passed variant: same cached xap lookup and image upload
+0x800cec14 func script_OpStartFadeBars hand script op: spawns story_UpdateFadeBars task with timer and heights from operands
+0x800cec88 func script_OpStartImageFade hand script op: spawns story_UpdateImageFade task with operands and image pointer
+0x800ced1c func script_OpKillFadeTasks hand script op: kills task priority 0x11 via 0x800156ac
+0x800ced3c func script_OpSetStoryFlag hand script op: sets bit operand in progress flags _DAT_800a3d80 when mode above 1
+0x800ceebc func script_OpSelectNumber hand script op: up/down pad adjusts value at script var +2 within operand range, confirm returns 2
+0x800cf054 func stub_800cf054 hand empty script op, returns 0
+0x800cf05c func stub_800cf05c hand rules: empty: jr ra
+0x800cf064 func story_InitScriptState hand loads script file to 0x8018e000, resets pointers, flags, fade and image slots, clears xap cache
+0x800cf128 func story_ResetScriptAndStats hand clears saved player stat words, sets level 1, calls story_InitScriptState
+0x800cf170 func script_ReadOperand hand reads 16-bit operand; values 0x8xxx redirect to script variable table _DAT_800bf634
+0x800cf1bc func script_ExecuteOps hand interpreter loop: 0xf2 set, 0xf3 add, 0xf6 divide variable, plus op-table dispatch
+0x800cf674 func story_ModeTask hand main story task states: init flags, load STORY.XAP and ao, then runs script_ExecuteOps
+0x800cf99c func story_DrawCardIconBlink hand draws blinking icon prim with pulse colour from frame counter via 0x8008c740
+0x800cf9e8 func story_FormatMenuText hand copies menu strings handling % markers into 64-byte buffer, measures text width and line count
+0x800cfc08 func story_DrawMenuWindow hand sets up window rect from text size, draws highlight bars, frame and text prims
+0x800cfde0 func story_DrawBackdrop hand draws background prim via 0x8008c740 with prio 0xf
+0x800cfe1c func story_DrawYesNoButtons hand draws two buttons, highlight eased toward 0x80 vs 0x30 by selection
+0x800cff8c func story_DrawSaveBackdrop hand draws save screen background prim via 0x8008c740
+0x800cffc0 func story_DrawSlotTabs hand draws four slot tabs, selected DAT_800d2f2a brightened with eased colour
+0x800d0134 func story_DrawSlotDetail hand draws selected slot portrait, level markers and icons from 0x34-byte save slot struct
+0x800d0374 func story_DrawNumber hand draws decimal digits right to left at x,y via sprite prims, digit/10 loop
+0x800d041c func story_DrawSlotStatNumbers hand draws three stat numbers from slot values with labels
+0x800d0654 func story_LoadSlotToCurrent hand copies selected save slot struct name and stat words into current story globals
+0x800d06f0 func story_StoreCurrentToSlot hand writes current stats and name into slot struct, fills random-based fields from table
+0x800d08a8 func story_SlotSelectTask hand states: spawn draw tasks, up/down moves slot DAT_800d2f2a, confirm switches to save menu task
+0x800d0b70 func story_MergeSavedProgress hand ORs flag words and takes max of counters from temp save buffer into progress globals
+0x800d0c5c func story_SaveMenuTask hand states: spawn window tasks, yes/no menu, cancel returns, confirm proceeds to save
+0x800d11ac func story_LoadCardGraphicsTask hand loads STORY\STCARD.XAP, uploads its images to VRAM, then switches to save menu task
+0x800d12f0 func story_MemcardSaveTask hand copies progress block to save buffer, runs memory card status polling switch
+0x800d16e4 func story_MemcardResultTask hand polls card status; errors go to format task, confirm to retry task, left/right selects slot
+0x800d199c func story_MemcardFormatTask hand handles card status cases (new card, unformatted) with message states, clears flags
+0x800d1f04 func story_RetryYesNoTask hand yes/no prompt toggled by left/right with cross confirm, then continues or retries
+0x800d2244 func story_LoadingCardTask hand loads SELECT\LOADING.XAP image, shows loading, loads STORY\STCARD.XAP, then goes to retry task
