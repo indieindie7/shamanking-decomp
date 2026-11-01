@@ -97,10 +97,10 @@ F 800ce7c4 script_OpLoadAoChangeScene USER_DEFINED 248
 F 800ce8bc script_OpLoadAoChangeScene_2 USER_DEFINED 232
 F 800ce9a4 script_OpChangeScene USER_DEFINED 148
 F 800cea38 script_OpEndChapterToSave USER_DEFINED 276
-F 800ceb4c script_OpFadeStoreOperandA USER_DEFINED 24
-F 800ceb64 script_OpFadeStoreOperandB USER_DEFINED 24
-F 800ceb7c script_OpFadeStoreOperandC USER_DEFINED 24
-F 800ceb94 script_OpFadeStoreOperandD USER_DEFINED 24
+F 800ceb4c script_OpSetFadeParam65c USER_DEFINED 24
+F 800ceb64 script_OpSetFadeParam65b USER_DEFINED 24
+F 800ceb7c script_OpSetFadeParam65e USER_DEFINED 24
+F 800ceb94 script_OpSetFadeParam65d USER_DEFINED 24
 F 800cebac script_OpDrawCachedXapImage USER_DEFINED 24
 F 800cebc4 script_OpDrawCachedXapImage_2 USER_DEFINED 80
 C 800cbbf4

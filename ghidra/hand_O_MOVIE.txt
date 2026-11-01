@@ -23,6 +23,6 @@
 0x800cbe44 func mdec_GetStatus hand returns MDEC status register
 0x800cbe5c func mdec_TimeoutReset hand prints %s timeout then resets MDEC and DMA registers
 0x800cbf10 func DecDCTvlc hand variable length decodes MPEG bitstream frame into macroblock coefficient words
-0x800cb884 func movie_CopyStaticTables hand provisional copies three static tables 0x800cd084 (16 words), cd0c4 (16), cd108 (32) into caller buffer
-0x800cbee0 func movie_SetDecodeLimit hand provisional stores param*2 into DAT_800cd1d0 (or 0xffffff if param<2), returns old value
-0x800cbf00 func movie_ClearDecodeLimit hand provisional split tail of movie_SetDecodeLimit: stores 0xffffff to limit variable
+0x800cb884 func movie_CopyStaticTables hand copies three static tables 0x800cd084 (16 words), cd0c4 (16), cd108 (32) into caller buffer
+0x800cbee0 func movie_SetDecodeLimit hand stores param*2 into DAT_800cd1d0 (or 0xffffff if param<2), returns old value
+0x800cbf00 func movie_ClearDecodeLimit hand split tail of movie_SetDecodeLimit: stores 0xffffff to limit variable

@@ -1,0 +1,50 @@
+SK 0x800860d8 pad_GetPortReady CONFIRM pad_GetPortReady returns 1 only when both port flag bytes have bit0 set
+SK 0x80087ffc mc_OnEventIoe CONFIRM mc_OnEventIoe sets flag 1 returns 0; first of card event group IOE/ERROR/TIMEOUT/NEW
+SK 0x80088010 mc_OnEventError CONFIRM mc_OnEventError sets flag at next consecutive word; second of group
+SK 0x80088024 mc_OnEventTimeout CONFIRM mc_OnEventTimeout sets flag at next consecutive word; third of group
+SK 0x80088038 mc_OnEventNew CONFIRM mc_OnEventNew sets flag at next consecutive word; fourth of group
+SK 0x8008804c mc_OnEventExtra RENAME mc_OnEventIoeB fifth flag handler starts second group repeating the same four-event order
+SK 0x80088060 mc_OnEventSix RENAME mc_OnEventErrorB sixth flag handler, second group same order
+SK 0x80088074 mc_OnEventSeven RENAME mc_OnEventTimeoutB seventh flag handler, second group same order
+SK 0x80088088 mc_OnEventEight RENAME mc_OnEventNewB eighth flag handler, second group same order
+SK 0x80089260 pad_AssignSlotMap CONFIRM pad_AssignSlotMap fills 6-entry slot map at +0x5d from count table, sets state 0xfe
+SK 0x80089a78 pad_GetSlotByte CONFIRM pad_GetSlotByte returns table byte by mode and slot index +0x45-3
+SK 0x80089db0 mc_GetBufferByNibble CONFIRM mc_GetBufferByNibble picks one of two fixed buffers by high nibble
+SK 0x8008a22c pad_IsPortBusy CONFIRM pad_IsPortBusy returns 1 unless +0xe6 is nonzero and state +0x46 is -1 (idle)
+SK 0x8008b284 mc_ReadStateStep UNSURE mc_ReadStateStep byte-response state machine on +0x46 shared pad struct; no callers, card vs pad unclear
+SK 0x8008d368 gte_RenderTrisNCLIP_C CONFIRM gte_RenderTrisNCLIP_C RTPT+NCLIP+AVSZ3 tri loop 0x14 stride, 10-word packets
+SK 0x8008e254 gte_RenderTrisNCLIP_D CONFIRM gte_RenderTrisNCLIP_D RTPT+NCLIP+AVSZ3 tri loop 0x2c stride
+SK 0x80090a20 gte_RenderG3EnvLitA CONFIRM gte_RenderG3EnvLitA RTPT+NCLIP tri loop with GTE normal lighting and 0-255 clamp
+SK 0x80090ce0 gte_RenderG3EnvLitB RENAME gte_DrawBatchG3FrontNormalLit called in G3 slot of gte_DrawBatchAllFront between F4 and G4NormalLit
+SK 0x800911b8 gte_BuildSpriteQuads CONFIRM gte_BuildSpriteQuads RTPS per point builds quad packets with depth-0x20
+SK 0x80025800 sys_ClearGpState358 CONFIRM sys_ClearGpState358 zeroes gp+0x358/0x359 bytes and 0x36c/0x370 words
+SK 0x800258ac sys_SetGpState359 CONFIRM sys_SetGpState359 sets gp+0x359 from arg and timer gp+0x358=20
+SK 0x800cbb08 story_CountLoopStub CONFIRM story_CountLoopStub empty counting loop no side effects
+SK 0x800cd68c script_OpStartSlotTween UNSURE script_OpStartSlotTween writes slot fields +0x1e/+0x24 and dirty flag; tween meaning unproven
+SK 0x800cd7d4 script_OpSetSlotPosX CONFIRM script_OpSetSlotPosX writes operand to slot +0x26 and +0x18 position pair
+SK 0x800cdd4c script_OpSetPortraitColor UNSURE script_OpSetPortraitColor stores byte at portrait obj +0x21; color meaning unproven
+SK 0x800cdf2c script_OpSetTextWindowParam CONFIRM script_OpSetTextWindowParam stores operand to text mode byte bf656
+SK 0x800cdf44 script_OpTextModeNormal CONFIRM script_OpTextModeNormal sets text mode bytes to 1 and clears voice id to 0xff
+SK 0x800cdf6c script_OpTextModeAlt CONFIRM script_OpTextModeAlt sets text mode byte to 4 and clears voice id
+SK 0x800ce0a4 script_OpSetVoiceId CONFIRM script_OpSetVoiceId stores operand to bf658 which text modes reset to 0xff
+SK 0x800ce0bc script_OpClearVoiceId CONFIRM script_OpClearVoiceId resets bf658 to 0xff
+SK 0x800ce0d0 script_OpSetVoiceIdTail CONFIRM script_OpSetVoiceIdTail duplicate store of operand to bf658
+SK 0x800ce188 script_OpSetFadeDirection CONFIRM script_OpSetFadeDirection toggles fade state byte between 2 and 4 by operand
+SK 0x800ce540 script_OpWaitPadFlag CONFIRM script_OpWaitPadFlag returns 2 (wait) while flag byte zero
+SK 0x800ceb4c script_OpFadeStoreOperandA RENAME script_OpSetFadeParam65c stores operand to bf65c; letter name carried no meaning
+SK 0x800ceb64 script_OpFadeStoreOperandB RENAME script_OpSetFadeParam65b stores operand to bf65b
+SK 0x800ceb7c script_OpFadeStoreOperandC RENAME script_OpSetFadeParam65e stores operand to bf65e
+SK 0x800ceb94 script_OpFadeStoreOperandD RENAME script_OpSetFadeParam65d stores operand to bf65d
+SK 0x800ceda4 script_OpSetUnlockBit CONFIRM script_OpSetUnlockBit ORs 1<<(operand-1) into mask word
+SK 0x800cedd4 script_OpGetUnlockMask CONFIRM script_OpGetUnlockMask writes same mask into script result variable
+SK 0x800cedf4 script_OpSetSelectBase CONFIRM script_OpSetSelectBase stores operand to bf661 read back by GetSelectBase
+SK 0x800cee0c script_OpAddStatA CONFIRM script_OpAddStatA adds operand*0x100 (8.8 fixed) to stat word
+SK 0x800cee30 script_OpAddStatB CONFIRM script_OpAddStatB same pattern next stat word
+SK 0x800cee54 script_OpAddStatC CONFIRM script_OpAddStatC same pattern next stat word
+SK 0x800cee78 script_OpAddStatD CONFIRM script_OpAddStatD same pattern next stat word
+SK 0x800cee9c script_OpGetSelectBase CONFIRM script_OpGetSelectBase writes bf661 into result variable
+SK 0x800cb884 movie_CopyStaticTables CONFIRM movie_CopyStaticTables copies three static word tables into buffer
+SK 0x800cbee0 movie_SetDecodeLimit CONFIRM movie_SetDecodeLimit sets limit var to arg*2 or 0xffffff, returns old
+SK 0x800cbf00 movie_ClearDecodeLimit CONFIRM movie_ClearDecodeLimit split tail storing 0xffffff to limit
+SK 0x800ce820 gfx_BuildGlyphPrimList RENAME gfx_BuildSpritePrimList callers minigame loaders feed XAP sprite data; 0x24-byte tpage/clut/uv prims, not text glyphs
+SK 0x800d353c train_SetPanelValueByState CONFIRM train_SetPanelValueByState sets child +0x48 by state 1 or 2 and flag bit 4

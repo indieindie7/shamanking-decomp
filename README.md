@@ -3,22 +3,23 @@
 Hand-named function map, naming prompt and tools for **Shaman King: Spirit of Shamans** (SLPS-03432, Japan):
 the main executable `SLPS_034.32` (MIPS R3000 + GTE, PsyQ GCC, loaded at 0x80010000) and its five code
 overlays `O_MINI`, `O_MOVIE`, `O_OPTION`, `O_STORY`, `O_TRAIN` (loaded at 0x800cad88, the end of the main bss).
-Current state (after round 3):
+Current state (after round 4):
 
 | Program | Functions | Named | Provisional |
 |---|---|---|---|
-| SLPS_034.32 | 2,139 | 2,139 | 81 |
-| O_MINI | 114 | 114 | 1 |
-| O_STORY | 146 | 146 | 24 |
-| O_TRAIN | 115 | 115 | 1 |
+| SLPS_034.32 | 2,139 | 2,139 | 5 |
+| O_MINI | 114 | 114 | 0 |
+| O_STORY | 146 | 146 | 2 |
+| O_TRAIN | 115 | 115 | 0 |
 | O_OPTION | 40 | 40 | 0 |
-| O_MOVIE | 28 | 28 | 3 |
+| O_MOVIE | 28 | 28 | 0 |
 
 0 `FUN_` placeholders left.
 
 - Round 1: one naming pass over every function Ghidra found (2,339).
 - Round 2 (11-01): 293 provisional names reviewed by 3 agents with callers/callees context: 231 confirmed, 56 renamed, 6 still `provisional`.
 - Round 3 (11-01, coverage): `tools/orphans.py` scanned for code no function owned (pointer-table handlers, leaf functions after `jr ra`, jal targets in gaps). 243 missed functions created and named (SLPS +143, STORY +61, TRAIN +26, MINI +10, MOVIE +3); leftover refs checked to be data. New names still marked `provisional` where unsure.
+- Round 4 (11-01): all 110 provisional names re-read with current callee names + callers (`tools/provctx3.py`, verdicts `ghidra/review/r3_SK_*_verdicts.txt`): 90 confirmed, 13 renamed, 7 still `provisional`.
 
 Game: 3D arena fighter where shamans fight with a guardian spirit (over soul, furyoku spirit meter).
 Subsystems named so far: fighters and character state machines (`fighter_`, `fgt_`, `char_`/`chr_`), spirits

@@ -15,7 +15,7 @@
 0x800ce3dc func gfx_DrawFontChar hand builds sprite-like packet (code 0x2e/0x35 style quad) for one glyph and links into OT via func_8008c164
 0x800ce634 func text_DrawStringW8 hand draws Shift-JIS string with 8 pixel glyph advance calling FUN_800ce3dc per char
 0x800ce6f4 func text_DrawStringW12 hand draws Shift-JIS string with 12 pixel glyph advance calling FUN_800ce3dc per char
-0x800ce820 func gfx_BuildGlyphPrimList hand provisional builds list of glyph primitives from int array, returns count
+0x800ce820 func gfx_BuildSpritePrimList hand builds list of glyph primitives from int array, returns count (was gfx_BuildGlyphPrimList)
 0x800cea88 func maki_UpdatePlayerSprite hand MAKI minigame player task uses DAT_800e6d0c; state 0x30 sounds 0x8102, animation switching, draws via func_8008c164
 0x800cf040 func maki_UpdateCharacter3D hand MAKI character model task: inits model at DAT_801c0800, picks animation from table DAT_800e0ab4, queues draw
 0x800cf348 func maki_InitSpriteSet hand MAKI: initializes 8 sprite structs from DAT_800e0ac0, then draws icons via func_8008c564

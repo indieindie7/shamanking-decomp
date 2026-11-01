@@ -1,0 +1,60 @@
+SK 0x8002b778 vsmenu_IsPlayerAIControlled CONFIRM vsmenu_IsPlayerAIControlled caller skips pad read when it returns nonzero, slot type 4 with flag
+SK 0x8002ea30 fx_UpdateRibbonTrail CONFIRM fx_UpdateRibbonTrail ring of 24 points, GT3 quads, ages and expires
+SK 0x8002edd8 fx_UpdateRotatingTrail CONFIRM fx_UpdateRotatingTrail same ring-trail with ScaleMatrix and sin offsets
+SK 0x80034c64 battle_DispatchPlayerControl CONFIRM battle_DispatchPlayerControl per-fighter switch on control type sets slot indices, caller battle_UpdateMain
+SK 0x80034c78 battle_DispatchPlayerControlB RENAME battle_DispatchPlayerControlTail Ghidra split entry inside the dispatch after prologue, same body, no callers
+SK 0x8003bd50 hit_DispatchHandlerTableG CONFIRM hit_DispatchHandlerTableG defender flags choose stub or indexed handler table
+SK 0x80014bf0 pad_VibCheckPatternDone CONFIRM pad_VibCheckPatternDone counter reaches limit clears active, returns 0
+SK 0x80014d08 pad_VibRunScriptResume CONFIRM pad_VibRunScriptResume script opcode interpreter tail with loop and end ops
+SK 0x80014dcc pad_SetPortFlagBit0 CONFIRM pad_SetPortFlagBit0 clears motor timers, sets bit0 of port flag
+SK 0x80014e14 pad_ClearPortFlagBit0 CONFIRM pad_ClearPortFlagBit0 clears motor timers, clears bit0 of port flag
+SK 0x80015a90 obj_SetShort16 CONFIRM obj_SetShort16 null-checked store of halfword at +0x16
+SK 0x80015aa8 obj_SetHiddenFlag UNSURE obj_SetHiddenFlag bit0 of +0x15 semantics unproven, no callers
+SK 0x80015ac8 obj_GetHiddenFlag UNSURE obj_GetHiddenFlag bit0 of +0x15 semantics unproven, no callers
+SK 0x80015ad4 obj_ClearHiddenFlag UNSURE obj_ClearHiddenFlag bit0 of +0x15 semantics unproven, no callers
+SK 0x80015af4 obj_SetPair18 CONFIRM obj_SetPair18 null-checked store of two words at +0x18/+0x1c
+SK 0x80015f60 fx_ResetGlobalParams CONFIRM fx_ResetGlobalParams resets four parameter globals to constants
+SK 0x80016334 sys_ClearTwoGlobals CONFIRM sys_ClearTwoGlobals zeroes two words
+SK 0x8001b0cc ui_SetCursorHalfword UNSURE ui_SetCursorHalfword struct at gp+0x26c not shown to be cursor
+SK 0x800250b4 fade_StartTransitionA CONFIRM fade_StartTransitionA installs fade handler, targets, start value
+SK 0x80025294 fade_StartTransitionB CONFIRM fade_StartTransitionB same with second handler
+SK 0x80025508 cam_SetTargetOverFrames CONFIRM cam_SetTargetOverFrames target and per-frame step over frame count
+SK 0x800257bc fgt_InitStateTimerA CONFIRM fgt_InitStateTimerA state byte selects timer 0x1e or clears counters
+SK 0x800257e4 fgt_SetTimerStateRange CONFIRM fgt_SetTimerStateRange states 5..6 set timer 0x1e
+SK 0x80025818 fgt_StoreTimerFromV0 CONFIRM fgt_StoreTimerFromV0 split tail storing v0 to timer byte
+SK 0x80025824 fgt_InitStateTimerB CONFIRM fgt_InitStateTimerB state 0/5/6 set timer 0x28
+SK 0x8002584c fgt_SetTimerIfNonzeroV0 CONFIRM fgt_SetTimerIfNonzeroV0 split tail conditional timer 0x28
+SK 0x80025868 fgt_InitStateTimerC CONFIRM fgt_InitStateTimerC state 2 timer 0x14, 0/5/6 timer 0x1e
+SK 0x80025890 fgt_SetTimerStateRangeAlt CONFIRM fgt_SetTimerStateRangeAlt copy of range setter
+SK 0x800258c0 fgt_StoreTimerFromV0Alt CONFIRM fgt_StoreTimerFromV0Alt second split tail copy
+SK 0x80032c8c fgt_GetCurrentMoveId CONFIRM fgt_GetCurrentMoveId mode byte selects move table halfword or 0x81
+SK 0x8003500c battle_SetPhaseHandlerNext CONFIRM battle_SetPhaseHandlerNext sets phase globals and next handler pointer
+SK 0x800353c0 fgt_PushFightersToBounds CONFIRM fgt_PushFightersToBounds moves both fighters X toward stage edge
+SK 0x80040cd0 fgt_SetMoveCountersEight CONFIRM fgt_SetMoveCountersEight sets two globals to 8, returns 0
+SK 0x80056b40 fgt_GetP1ReachByFlag CONFIRM fgt_GetP1ReachByFlag 0x48 or 0x28 by P1 byte +0x1c
+SK 0x80056b68 fgt_GetP2ReachByFlag CONFIRM fgt_GetP2ReachByFlag 0x48 or 0x28 by P2 byte +0x1c
+SK 0x80056bdc fgt_IsP2FlaggedBusy CONFIRM fgt_IsP2FlaggedBusy P2 flag 0x10 or move record bit27
+SK 0x8005eb38 gfx_ShiftPartUVs CONFIRM gfx_ShiftPartUVs adds v and tpage offset per 8-byte part
+SK 0x8005ec18 gfx_ShiftPartUVsFull CONFIRM gfx_ShiftPartUVsFull adds v, UV bytes and tpage per part
+SK 0x80062830 math_PointInConvexPolyLoop CONFIRM math_PointInConvexPolyLoop cross-product edge loop, returns inside
+SK 0x80062cb8 anim_HasSubEntry CONFIRM anim_HasSubEntry sub-table count nonzero and entry offset differs
+SK 0x8006750c model_DrawNextCmd CONFIRM model_DrawNextCmd model draw loop with jump table dispatch
+SK 0x80067668 model_DrawCmdMoveImagePair CONFIRM model_DrawCmdMoveImagePair two SetDrawMove copies then resumes loop
+SK 0x800677b0 model_DrawCmdMoveImageOffset CONFIRM model_DrawCmdMoveImageOffset SetDrawMove plus offset second copy
+SK 0x800678c0 model_DrawCmdColorFadeIn RENAME model_DrawCmdColorFadeOut weight falls 0x80 to 0 across range, zero after end (names swapped with 8006794c)
+SK 0x8006794c model_DrawCmdColorFadeOut RENAME model_DrawCmdColorFadeIn zero before start, weight rises 0 to 0x80 across range (names swapped with 800678c0)
+SK 0x80067a18 model_DrawCmdSetPartColor CONFIRM model_DrawCmdSetPartColor three shorts shifted, clamped 255, stored as RGB scale
+SK 0x80067ad8 model_DrawCmdLoopResume CONFIRM model_DrawCmdLoopResume loop body copy, calls ScalePrimListColors and GT3
+SK 0x8006bdfc spu_SetTransferModeBits CONFIRM spu_SetTransferModeBits clears 3 bits, sets 0x50000 or 0x30000
+SK 0x80075df0 spu_GetStatusHalf CONFIRM spu_GetStatusHalf returns halfword through pointer
+SK 0x80076410 intr_SetHandlerSlot CONFIRM intr_SetHandlerSlot stores handler in slot array if changed
+SK 0x80078ba4 cd_SetStateWord CONFIRM cd_SetStateWord stores argument in global
+SK 0x8007d734 gs_CopyCoordTail CONFIRM gs_CopyCoordTail split tail copying two words to output
+SK 0x8007df70 gpu_GetStateByte CONFIRM gpu_GetStateByte returns byte global
+SK 0x80080bfc gpu_InitEnvStruct CONFIRM gpu_InitEnvStruct fills four shorts, zeroes the rest
+SK 0x800818c8 evt_GetEntryHalf CONFIRM evt_GetEntryHalf index<3 returns table halfword else 0
+SK 0x80081930 evt_ClearMaskBits CONFIRM evt_ClearMaskBits clears mask bits in event table word, returns 1
+SK 0x80083010 cd_GetLastCmdByte CONFIRM cd_GetLastCmdByte returns byte global
+SK 0x8008303c cd_GetLastParamByte CONFIRM cd_GetLastParamByte returns byte global
+SK 0x80085c5c pad_WaitAckThenExit CONFIRM pad_WaitAckThenExit spins on SIO DSR then jumps to exit handler
+SK 0x80085e8c pad_SetCallbackWord CONFIRM pad_SetCallbackWord stores argument in global

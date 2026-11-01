@@ -29,7 +29,7 @@ F 800ce6f4 text_DrawStringW12 USER_DEFINED 200
 C 800ce3dc
 F 800ce7bc math_TriangleWave USER_DEFINED 60
 F 800ce7f8 math_AbsAngleWrap USER_DEFINED 40
-F 800ce820 gfx_BuildGlyphPrimList USER_DEFINED 608
+F 800ce820 gfx_BuildSpritePrimList USER_DEFINED 608
 F 800cea88 maki_UpdatePlayerSprite USER_DEFINED 1464
 F 800cf040 maki_UpdateCharacter3D USER_DEFINED 776
 F 800cf348 maki_InitSpriteSet USER_DEFINED 884
