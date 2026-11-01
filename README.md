@@ -3,18 +3,22 @@
 Hand-named function map, naming prompt and tools for **Shaman King: Spirit of Shamans** (SLPS-03432, Japan):
 the main executable `SLPS_034.32` (MIPS R3000 + GTE, PsyQ GCC, loaded at 0x80010000) and its five code
 overlays `O_MINI`, `O_MOVIE`, `O_OPTION`, `O_STORY`, `O_TRAIN` (loaded at 0x800cad88, the end of the main bss).
-Round 1 (one naming pass over every function):
+Current state (after round 3):
 
 | Program | Functions | Named | Provisional |
 |---|---|---|---|
-| SLPS_034.32 | 1,996 | 1,996 | 6 |
-| O_MINI | 104 | 104 | 1 |
-| O_STORY | 85 | 85 | 0 |
-| O_TRAIN | 89 | 89 | 0 |
+| SLPS_034.32 | 2,139 | 2,139 | 81 |
+| O_MINI | 114 | 114 | 1 |
+| O_STORY | 146 | 146 | 24 |
+| O_TRAIN | 115 | 115 | 1 |
 | O_OPTION | 40 | 40 | 0 |
-| O_MOVIE | 25 | 25 | 0 |
+| O_MOVIE | 28 | 28 | 3 |
 
-0 `FUN_` placeholders left. Round 2 (11-01): 293 provisional names reviewed by 3 agents with callers/callees context: 231 confirmed, 56 renamed, 6 still `provisional`.
+0 `FUN_` placeholders left.
+
+- Round 1: one naming pass over every function Ghidra found (2,339).
+- Round 2 (11-01): 293 provisional names reviewed by 3 agents with callers/callees context: 231 confirmed, 56 renamed, 6 still `provisional`.
+- Round 3 (11-01, coverage): `tools/orphans.py` scanned for code no function owned (pointer-table handlers, leaf functions after `jr ra`, jal targets in gaps). 243 missed functions created and named (SLPS +143, STORY +61, TRAIN +26, MINI +10, MOVIE +3); leftover refs checked to be data. New names still marked `provisional` where unsure.
 
 Game: 3D arena fighter where shamans fight with a guardian spirit (over soul, furyoku spirit meter).
 Subsystems named so far: fighters and character state machines (`fighter_`, `fgt_`, `char_`/`chr_`), spirits
@@ -41,7 +45,7 @@ no Ghidra database. You need your own copy of the game to use any of this.
 | `ghidra/naming/prompt_SK.txt` | the round-1 naming prompt |
 | `ghidra/review/` | round-2 review prompt + verdict lines (`SK 0x<addr> <old> CONFIRM/RENAME/UNSURE <new> <reason>`) |
 | `ghidra/scripts/` | `SeedMipsFunctionsAt.java` (prologue seeding from the program's lowest address), `CsDumpAll.java` (decompile dump) |
-| `tools/` | `psxrules.py`, `injecthints.py`, `trimdump.py`, `slice.py`, `mergehand.py`, `pubfuncinfo.py` |
+| `tools/` | `psxrules.py`, `injecthints.py`, `trimdump.py`, `slice.py`, `mergehand.py`, `pubfuncinfo.py`, `orphans.py` (coverage scan) |
 
 ## Licence
 

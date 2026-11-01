@@ -26,6 +26,7 @@ C 800cade8
 F 800cb760 movie_LzDecompress USER_DEFINED 228
 F 800cb850 DecDCTReset USER_DEFINED 52
 C 800cbb10
+F 800cb884 movie_CopyStaticTables USER_DEFINED 140
 F 800cb910 DecDCTPutEnv USER_DEFINED 152
 C 800cbc00
 C 800cbc00
@@ -53,4 +54,6 @@ F 800cbdb0 mdec_WaitOutSync USER_DEFINED 148
 C 800cbe5c
 F 800cbe44 mdec_GetStatus USER_DEFINED 24
 F 800cbe5c mdec_TimeoutReset USER_DEFINED 124
+F 800cbee0 movie_SetDecodeLimit USER_DEFINED 32
+F 800cbf00 movie_ClearDecodeLimit USER_DEFINED 16
 F 800cbf10 DecDCTvlc USER_DEFINED 844

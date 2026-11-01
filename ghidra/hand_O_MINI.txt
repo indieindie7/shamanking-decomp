@@ -102,3 +102,13 @@
 0x800e0358 func runner_DrawFinishMarkers hand draws 13 marker quads along ground with UV from grid index /9 and %9
 0x800e0530 func runner_UpdateGroundTiles hand ground scroll task: animates VRAM row via func_8007e3e4, spawns two tile draw tasks
 0x800e070c func runner_DrawGroundTile hand projects tile origin and draws ground via func_8008dccc with data DAT_800f4808
+0x800cc14c func mini_UpdateButtonMashGauge hand state task: 0 init 32-entry press ring and gauge 0x1e000, 1 wait start, 2 gauge +0xf00 per pad 0x20 press, decays
+0x800cc188 func mini_UpdateMashGaugeStep hand split tail of mash gauge task state 2: add 0xf00 on pad 0x20, decay, ring index wraps &0x1f
+0x800cc19c func mini_InitMashGauge hand split head of mash gauge init: sets state, fills 32 press-ring bytes with 1, gauge 0x1e000
+0x800cc1e4 func mini_WaitMashStart hand split piece of mash gauge state 1: when game field +0x290 nonzero advance state to 2
+0x800cc208 func mini_UpdateMashGaugeCore hand split core of mash gauge: pad 0x20 raises gauge 0xf00, ring byte decay, clamp at 0
+0x800ce7bc func math_TriangleWave hand abs angle mod 4096, folds above 0x800, doubles: triangle wave 0..0x1000
+0x800ce7f8 func math_AbsAngleWrap hand abs of value modulo 4096 (angle wrap to 0..0xfff)
+0x800d80fc func mini_IsTaskActive hand returns whether task pointer DAT_800e6d7c is nonzero
+0x800d810c func mini_KillTask hand sets task +8 to -16 delete flag and clears pointer DAT_800e6d7c
+0x800e07ac func pad_UpdatePressHistory hand pushes pad word into 60-entry ring, counts new rising edges of bit 0x20 over 60 frames

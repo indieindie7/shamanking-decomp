@@ -2,6 +2,11 @@ F 800cb8a8 air_UpdatePlayerStateA USER_DEFINED 776
 F 800cbbb0 air_TickSpawnDelay USER_DEFINED 88
 F 800cbc10 air_UpdatePlayerStateB USER_DEFINED 720
 F 800cbef0 air_InitPlayerSprites USER_DEFINED 604
+F 800cc14c mini_UpdateButtonMashGauge USER_DEFINED 60
+F 800cc188 mini_UpdateMashGaugeStep USER_DEFINED 20
+F 800cc19c mini_InitMashGauge USER_DEFINED 72
+F 800cc1e4 mini_WaitMashStart USER_DEFINED 36
+F 800cc208 mini_UpdateMashGaugeCore USER_DEFINED 212
 F 800cc2dc air_DrawTimer USER_DEFINED 272
 C 800d1a04
 F 800cc3f4 air_UpdateFallingItem USER_DEFINED 628
@@ -22,6 +27,8 @@ F 800ce634 text_DrawStringW8 USER_DEFINED 192
 C 800ce3dc
 F 800ce6f4 text_DrawStringW12 USER_DEFINED 200
 C 800ce3dc
+F 800ce7bc math_TriangleWave USER_DEFINED 60
+F 800ce7f8 math_AbsAngleWrap USER_DEFINED 40
 F 800ce820 gfx_BuildGlyphPrimList USER_DEFINED 608
 F 800cea88 maki_UpdatePlayerSprite USER_DEFINED 1464
 F 800cf040 maki_UpdateCharacter3D USER_DEFINED 776
@@ -94,6 +101,8 @@ F 800d7cc4 menu_CloseDialog USER_DEFINED 32
 F 800d7ce4 menu_UpdateSlideInDialog USER_DEFINED 448
 F 800d7ea4 menu_UpdateSlideInMessage USER_DEFINED 500
 F 800d8098 menu_SpawnMessageBox USER_DEFINED 100
+F 800d80fc mini_IsTaskActive USER_DEFINED 16
+F 800d810c mini_KillTask USER_DEFINED 32
 F 800d812c menu_DrawCursorRing USER_DEFINED 660
 F 800d83c0 mini_SetSelectIndex5 USER_DEFINED 16
 F 800d83d0 mini_ReturnToSelectMenu USER_DEFINED 48
@@ -160,3 +169,4 @@ F 800e0234 runner_InitFinishLine USER_DEFINED 292
 F 800e0358 runner_DrawFinishMarkers USER_DEFINED 472
 F 800e0530 runner_UpdateGroundTiles USER_DEFINED 476
 F 800e070c runner_DrawGroundTile USER_DEFINED 160
+F 800e07ac pad_UpdatePressHistory USER_DEFINED 296

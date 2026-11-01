@@ -87,3 +87,28 @@
 0x800d4370 func gui_TextDestroy_3 hand sets text vtable, base dtor, free if flag bit
 0x800d43c4 func gui_TextCreate_3 hand text ctor sign-extending args then vtable ccaac
 0x800d4440 func gui_ObjDestroy_6 hand destructor wrapper: base dtor then free
+0x800d1690 func stub_800d1690 hand empty function, returns immediately
+0x800d2000 func train_HideHudObjects hand clears visible bit0 at +0x15 of 16 HUD objects in table 0x800d5bc0 and of DAT_800d5b9c
+0x800d27c0 func train_SetMenuFlag hand ORs 0x100 into flag word DAT_800d5bb8
+0x800d3054 func stub_800d3054 hand empty function, returns immediately
+0x800d3270 func stub_800d3270 hand empty function, returns immediately
+0x800d34ac func train_ShowPanelObjects hand sets visible bit0 on the two child objects at +0x38 and +0x3c
+0x800d34f4 func train_HidePanelObjects hand clears visible bit0 on the two child objects at +0x38 and +0x3c
+0x800d353c func train_SetPanelValueByState hand provisional switch on state +0x2e: sets child +0x48 to DAT_800d5c00-1, or 100/0xffff by flag bit 4
+0x800d3564 func train_SetPanelValueMax hand split case: child object +0x48 = DAT_800d5c00-1
+0x800d3590 func train_SetPanelValueByFlag hand split case: child +0x48 = 100 if flag bit 4 set else 0xffff
+0x800d35b4 func train_SetPanelValue hand split tail: stores register halfword into child object +0x48
+0x800d42b4 func train_SetObjBit0 hand sets or clears bit0 of flags +0x32 according to param
+0x800d42d4 func train_ClearObjBit0 hand clears bit0 of flags halfword +0x32
+0x800d42e8 func train_SetObjBit1 hand sets or clears bit1 of flags +0x32 according to param
+0x800d4308 func train_ClearObjBit1 hand clears bit1 of flags halfword +0x32
+0x800d4488 func data_800d4488 hand data mistaken for code (bad instruction)
+0x800d44c8 func data_800d44c8 hand data mistaken for code (bad instruction)
+0x800d45c0 func data_800d45c0 hand data mistaken for code (bad instruction)
+0x800d45f8 func data_800d45f8 hand data mistaken for code (bad instruction)
+0x800d4618 func data_800d4618 hand data mistaken for code (bad instruction)
+0x800d46d0 func data_800d46d0 hand data mistaken for code (bad instruction)
+0x800d4730 func data_800d4730 hand data mistaken for code (bad instruction)
+0x800d4790 func data_800d4790 hand data mistaken for code (bad instruction)
+0x800d47f0 func data_800d47f0 hand data mistaken for code (bad instruction)
+0x800d4d48 func data_800d4d48 hand data mistaken for code (bad instruction)

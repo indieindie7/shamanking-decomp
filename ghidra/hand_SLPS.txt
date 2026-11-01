@@ -1994,3 +1994,146 @@
 0x800919a0 func fat_GetFileSizeBytes hand finds entry and returns size field low 12 bits shifted by 11 (sectors times 2048)
 0x800919c8 func cd_StreamPoll hand stores remaining sector count from FUN_800842bc and computes sectors read so far
 0x80091a04 func cd_StreamWaitDone hand starts read chunk then polls cd_StreamPoll until finished, returns sectors read
+0x80014bf0 func pad_VibCheckPatternDone hand provisional vibration pattern step: if elapsed counter >= limit clears active and returns 0 else 1
+0x80014c20 func ret_80014c20 hand returns constant 1
+0x80014c28 func pad_VibRunScript hand vibration/keyframe script interpreter: opcodes 1 set, 2 lerp, fc/fd loop count, fe jump, ff end
+0x80014d08 func pad_VibRunScriptResume hand provisional tail copy of script interpreter taking state in t0 (Ghidra split of pad_VibRunScript)
+0x80014dcc func pad_SetPortFlagBit0 hand provisional per-port (stride 0x94) clears motor timers and sets flag bit0
+0x80014e14 func pad_ClearPortFlagBit0 hand provisional per-port (stride 0x94) clears motor timers and clears flag bit0
+0x80015700 func obj_KillAllExceptGroup hand walks circular object list 0x800c2518, marks func=-16 (dead) for objs whose group byte +0xf differs
+0x80015754 func obj_SetGroupStateByte hand walks object list, writes byte +0xe for every obj with group byte +0xf matching
+0x800157a0 func obj_SetFunc hand stores update function pointer into object +8
+0x80015948 func stub_80015948 hand empty return
+0x800159e8 func stub_800159e8 hand empty return
+0x80015a90 func obj_SetShort16 hand provisional if non-null stores halfword at +0x16
+0x80015aa8 func obj_SetHiddenFlag hand provisional if non-null sets bit0 of byte +0x15
+0x80015ac8 func obj_GetHiddenFlag hand provisional returns bit0 of byte +0x15
+0x80015ad4 func obj_ClearHiddenFlag hand provisional if non-null clears bit0 of byte +0x15
+0x80015af4 func obj_SetPair18 hand provisional if non-null stores two words at +0x18 and +0x1c
+0x80015f60 func fx_ResetGlobalParams hand provisional sets four globals at 0x800a3d80.. to constants 0x2ffff,0x1f,0x1ffff,0x1f and flag 1
+0x80016334 func sys_ClearTwoGlobals hand provisional zeroes two words at 0x800a3fc0/c4
+0x8001b0cc func ui_SetCursorHalfword hand provisional stores halfword at +4 of struct pointed by gp+0x26c
+0x80022b54 func stub_80022b54 hand empty return
+0x8002334c func pad_UpdateButtonEdges hand per port computes press/release/held-repeat masks from raw history, repeat timer 0x20, ORs masks for enabled ports
+0x800250b4 func fade_StartTransitionA hand provisional sets gp transition state: handler 0x80024f10, targets, start value, step flag, sets 0x800bf3d5
+0x80025294 func fade_StartTransitionB hand provisional same as StartTransitionA with handler 0x800250f4
+0x80025508 func cam_SetTargetOverFrames hand provisional target=param*0x1000, per-frame step=(target-cur)/frames (min 1), sets flag
+0x800257bc func fgt_InitStateTimerA hand provisional by state byte: 2 clears counters, 0/5/6 sets timer byte 0x1e
+0x800257e4 func fgt_SetTimerStateRange hand provisional state 5..6 sets timer byte gp+0x358 to 0x1e
+0x80025818 func fgt_StoreTimerFromV0 hand provisional jump-target tail storing v0 into timer byte gp+0x358
+0x80025824 func fgt_InitStateTimerB hand provisional by state byte: 0/5/6 sets timer byte to 0x28
+0x8002584c func fgt_SetTimerIfNonzeroV0 hand provisional if v0 nonzero and arg>4 sets timer byte to 0x28
+0x80025868 func fgt_InitStateTimerC hand provisional by state byte: 2 sets 0x359=2 timer 0x14, 0/5/6 timer 0x1e
+0x80025890 func fgt_SetTimerStateRangeAlt hand provisional state 5..6 sets timer byte to 0x1e (copy of 800257e4)
+0x800258c0 func fgt_StoreTimerFromV0Alt hand provisional second tail copy storing v0 into timer byte
+0x800262c0 func stub_800262c0 hand empty return
+0x8002e470 func obj_Kill hand if non-null sets update func +8 to -16 (dead marker)
+0x80032c8c func fgt_GetCurrentMoveId hand provisional fighter (default P1) mode byte +0x8e: 0 returns halfword from move table +8, 1 returns 0x81, else 0
+0x80032cd4 func ret_80032cd4 hand returns constant 0x81
+0x80032cdc func stub_80032cdc hand empty return
+0x80033cac func battle_ResumePlayerUpdates hand when not paused and counter<=0 sets task func to battle_RunPlayerUpdates
+0x8003500c func battle_SetPhaseHandlerNext hand provisional sets globals 0x800bf3f4=2, 0x800bf3f5=9 and object func to 0x80035034
+0x800353b8 func ret_800353b8 hand returns constant -1
+0x800353c0 func fgt_PushFightersToBounds hand provisional shifts both fighters X (+0x50) by half distance to stage edge, doubled when far from home X
+0x8003d630 func fgt_SetP1FlagBit16 hand sets bit 0x10000 in player1 fighter flags +0x4c
+0x8003e1dc func stub_8003e1dc hand empty return
+0x8003f098 func fgt_IsOutsideCameraRange hand fighter X minus camera X plus 0xa000 exceeds 0x14000 (default P1)
+0x80040cd0 func fgt_SetMoveCountersEight hand provisional sets two globals 0x800ac428/2a to 8, returns 0
+0x80041fdc func fgt_SetP1FlagBit16Alt hand same as fgt_SetP1FlagBit16 sets 0x10000 in P1 flags
+0x80041ffc func stub_80041ffc hand empty return
+0x80043010 func stub_80043010 hand empty return
+0x80046728 func stub_80046728 hand empty return
+0x8004b668 func fgt_CheckMoveTableFlagOne hand fighter (default P2) looks up byte in 7-stride table by +0x1e and +0x80, true if ==1
+0x800523a8 func fgt_SetP1FlagBit16Copy hand same as fgt_SetP1FlagBit16 sets 0x10000 in P1 flags
+0x80056418 func stub_80056418 hand empty return
+0x80056b40 func fgt_GetP1ReachByFlag hand provisional returns 0x48 if P1 byte +0x1c nonzero else 0x28
+0x80056b68 func fgt_GetP2ReachByFlag hand provisional returns 0x48 if P2 byte +0x1c nonzero else 0x28
+0x80056bdc func fgt_IsP2FlaggedBusy hand provisional P2 flag 0x10 or bit27 of its move record +8
+0x80056d60 func fgt_CopyP2LowFlagsToP1 hand copies flag bits 0..2 (+0x4c) from player2 fighter to player1
+0x80056e5c func fgt_SetP1FlagBit2 hand sets bit 4 in player1 fighter flags +0x4c
+0x8005b20c func fx_TrailUpdate hand obj func: unless paused kills self when flag 0x8000 clear, else appends owner pos to 16-entry trail ring
+0x8005b24c func fx_TrailAddSample hand appends owner x/z (+0x50,+0x58) to 16-entry trail array at 0x800bf888 if not full
+0x8005b298 func fx_TrailStart hand records first trail sample and sets obj func to fx_TrailUpdate
+0x8005eb38 func gfx_ShiftPartUVs hand provisional adds offset to v byte and tpage/clut bits of each 8-byte part entry
+0x8005ec18 func gfx_ShiftPartUVsFull hand provisional adds offsets to v and four UV bytes plus tpage bits of each 8-byte part entry
+0x8005ed40 func anim_BuildSpritePartQuads hand parses animation frame record into array of 0x18-byte sprite part quads, 4 coord encodings (byte/short, flags 0x400/0xc00)
+0x800625cc func gpu_AddDrawAreaClip hand writes GP0 packet 0xe3/0xe4/0xe5 (draw area TL/BR, offset) clamped to 320x240, links into OT
+0x8006274c func text_CountWideChars hand scans string, counts lead bytes with high bit set (2-byte SJIS chars)
+0x800627cc func math_PointInConvexPoly hand cross-product edge test of point against polygon vertex list, 0 if outside
+0x80062830 func math_PointInConvexPolyLoop hand provisional decompiler split loop tail of PointInConvexPoly using t-registers
+0x80062844 func gpu_AddPrimCopy6Words hand copies 6-word primitive into prim buffer 0x800c6878 and links into ordering table at index
+0x80062cb8 func anim_HasSubEntry hand provisional checks sub-table of model: first count nonzero and offset of entry index differs from header
+0x80062cf8 func ret_80062cf8 hand returns constant 0
+0x80062d00 func model_GetBoneSlot hand returns pointer base+0x9c+index*0x50 (array of 0x50-byte bone records)
+0x8006750c func model_DrawNextCmd hand provisional model draw loop body: advances part/command stream, builds rot matrices, gpu_ScalePrimListColors, dispatches via jump table 0x80013004
+0x80067668 func model_DrawCmdMoveImagePair hand provisional draw cmd: two SetDrawMove + gpu_AddPolyF4 copy-rect from two coordinate pairs, resumes draw loop
+0x800677b0 func model_DrawCmdMoveImageOffset hand provisional draw cmd: SetDrawMove copy-rect plus second one offset by height minus table value, resumes loop
+0x800678c0 func model_DrawCmdColorFadeIn hand provisional draw cmd: fade weight 0..0x80 from time within [start,end] range, writes part RGB scale bytes
+0x8006794c func model_DrawCmdColorFadeOut hand provisional draw cmd: like FadeIn but reversed range test, writes part RGB scale bytes
+0x80067a18 func model_DrawCmdSetPartColor hand provisional draw cmd: three shorts >>4 clamped to 255 stored as part RGB scale bytes
+0x80067ad8 func model_DrawCmdLoopResume hand provisional draw loop body copy entered after command; same matrix build/dispatch loop
+0x800696c0 func stub_800696c0 hand empty return
+0x80069b3c func math_IntToFloat hand converts signed int to IEEE single bits (normalize, round, exponent 0x9d base)
+0x8006bdc0 func spu_ReadAddrTable hand reads halfword from table by index, shifts left by SPU address shift unless param is -1
+0x8006bdfc func spu_SetTransferModeBits hand provisional clears bits 16-18 of control register DAT_800b7914 then sets 0x50000 or 0x30000 by param
+0x8006c0dc func spu_IsAddrAllocated hand walks SPU alloc table at DAT_800b796c, returns 1 if address inside a used block, 0 at end marker
+0x8006ff3c func snd_NoteToPitch hand converts note/fine/pitch value via lookup tables 0x800b7dc4/0x800b7eda into SPU pitch word (octave, semitone, fine)
+0x800753f4 func spu_AllocDefaultCallback hand returns second param; callback used by spu_AllocBlockWrap
+0x80075df0 func spu_GetStatusHalf hand provisional returns halfword read through pointer DAT_800b93c4
+0x80076410 func intr_SetHandlerSlot hand provisional stores handler into array 0x800b93dc[index] only if changed
+0x80076638 func DMACallback hand sets or clears per-channel DMA handler, updates DICR enable bit 1<<(ch+16)|0x800000, returns old handler
+0x8007670c func intr_SwapHandlerPtr hand swaps global DAT_800b943c with argument returns old (pair of ret_80076720)
+0x80076a4c func cd_ReleaseSectorBuffer hand maps buffer address to 0x20-byte queue entry, if state 4 clears its n entries and sets read index
+0x80076b3c func cd_PollReadyEntry hand checks queue head: state 1 wraps to 0, state 2 becomes 4 and returns buffer+entry ptr, returns 0 if ready
+0x80078ba4 func cd_SetStateWord hand provisional stores argument into global 0x800b97dc
+0x80079088 func ret_80079088 hand returns constant 0
+0x8007909c func math_GetRsqrtEntry hand GTE LZCR on value, scales to table index, returns table short at 0x800ba1f0 and exponent via pointers, -1 for 0/32
+0x80079120 func ret_80079120 hand returns constant -1
+0x8007916c func vec_NormalizeShortAlt hand loads 3 shorts, gte_NormalizeCore, writes 3 shorts back to output
+0x80079b1c func NormalClip hand loads three screen XY into SXY0-2, GTE op 0x1400006 (NCLIP), returns MAC0
+0x8007d734 func gs_CopyCoordTail hand provisional decompiler split tail copying two words (+0x18,+0x1c) into output struct, returns 0
+0x8007df70 func gpu_GetStateByte hand provisional returns byte global DAT_800bebfe
+0x8007fd10 func stub_8007fd10 hand empty return
+0x80080bfc func gpu_InitEnvStruct hand provisional fills struct: three shorts, fourth short, zeroes rest of fields
+0x800818c8 func evt_GetEntryHalf hand provisional for index<3 returns halfword at table+index*0x10 else 0
+0x80081930 func evt_ClearMaskBits hand provisional clears bits from mask table entry in word +4 of event table, returns 1
+0x80083010 func cd_GetLastCmdByte hand provisional returns byte DAT_800bee40
+0x8008303c func cd_GetLastParamByte hand provisional returns byte DAT_800bee46
+0x8008432c func ds_SwapCallbackPtr hand swaps global DAT_800bef90 with argument returns old
+0x80085c5c func pad_WaitAckThenExit hand provisional waits for SIO DSR bit clear when irq bit 7 set, then jumps to exit handler
+0x80085e8c func pad_SetCallbackWord hand provisional stores argument to global DAT_800bf03c
+0x800860d8 func pad_GetPortReady hand provisional returns 1 if both flag bytes of DAT_800bf044 have bit0 set else 0
+0x800862cc func mc_GetWorkAreaPtr hand returns address of work buffer 0x800ca720
+0x80087ffc func mc_OnEventIoe hand provisional card event handler sets flag 0x800ca820, returns 0
+0x80088010 func mc_OnEventError hand provisional card event handler sets flag 0x800ca824, returns 0
+0x80088024 func mc_OnEventTimeout hand provisional card event handler sets flag 0x800ca828, returns 0
+0x80088038 func mc_OnEventNew hand provisional card event handler sets flag 0x800ca82c, returns 0
+0x8008804c func mc_OnEventExtra hand provisional card event handler sets flag 0x800ca830, returns 0
+0x80088060 func mc_OnEventSix hand provisional memcard event handler, sets flag 0x800ca834, returns 0
+0x80088074 func mc_OnEventSeven hand provisional memcard event handler, sets flag 0x800ca838
+0x80088088 func mc_OnEventEight hand provisional memcard event handler, sets flag 0x800ca83c
+0x80089260 func pad_AssignSlotMap hand provisional builds 6-entry slot map at +0x5d from count table, sets +0x46=0xfe
+0x8008990c func pad_ResetPortState hand if +0x49 set, clears state fields and fills 6 slot bytes with 0xff
+0x80089a78 func pad_GetSlotByte hand provisional returns table byte chosen by mode +0x37, indexed by +0x45-3
+0x80089db0 func mc_GetBufferByNibble hand provisional returns 0x800cab00 or 0x800cabf0 if high nibble set
+0x8008a22c func pad_IsPortBusy hand provisional returns 1 unless +0xe6==0 and +0x46==-1
+0x8008b284 func mc_ReadStateStep hand provisional card/pad response state machine on +0x46, compares and stores bytes, advances +0x47
+0x8008b82c func pad_SendFirstByte hand calls callbacks then SioSendByte with mode byte +0x37 or 0x42
+0x8008c36c func gpu_AddPrimCopy7Words hand copies 7-word prim into 0x800c6878 buffer and links into OT
+0x8008d008 func gte_RenderTrisNCLIP_A hand RTPT+NCLIP+AVSZ3 loop, builds 7-word gouraud tri packets into OT
+0x8008d1a4 func gte_RenderTrisNCLIP_B hand same loop, count from param_4[1]+0x18, 10-word packets copying colour words
+0x8008d368 func gte_RenderTrisNCLIP_C hand provisional same loop, 0x14-byte vertex stride, 10-word packets
+0x8008e254 func gte_RenderTrisNCLIP_D hand provisional RTPT+NCLIP+AVSZ3 tri loop, 0x2c stride, count from param_4[1]+0x10
+0x8008f638 func gte_ProjectTrisXYOnly hand RTPT+NCLIP culled tris, stores 3 screen XY pairs per tri to buffer
+0x8008f700 func gte_ProjectQuadsXYOnly hand RTPT+NCLIP then RTPS 4th vertex, stores 4 XY pairs per quad
+0x80090174 func gte_DrawBatchAllFront hand dispatcher: runs F3/F4/G4/FT3/FT4/GT3/GT4 front batch draws, stores base in param_4+4
+0x80090a20 func gte_RenderG3EnvLitA hand provisional RTPT+NCLIP tri loop with per-vertex normal lighting via cop2 NCCS, clamps colours 0-255
+0x80090ce0 func gte_RenderG3EnvLitB hand provisional same as EnvLitA using three 0x1a0003e lighting ops per tri
+0x800910e0 func gte_ProjectPointsBatch hand RTPS pairs then RTPT triples to buffer, returns -1 on GTE flag error
+0x800911b8 func gte_BuildSpriteQuads hand provisional RTPS per point, builds quad packet words with depth-0x20 if positive
+0x80025800 func sys_ClearGpState358 hand provisional clears gp+0x36c/0x370 words and 0x358/0x359 bytes
+0x800258ac func sys_SetGpState359 hand provisional sets gp+0x359 = arg, gp+0x358 = 20 (timer)
+0x80079080 func stub_80079080 hand empty: jr ra (table slot)
+0x80079118 func stub_80079118 hand empty: jr ra (table slot)
+0x8004a3b0 func input_CmdStepPress hand command-input step: buttons match -> commit (type 3) or advance with window timer, else clear slot
+0x8004a4f4 func input_CmdStepHoldRelease hand command-input step: count down while held; on release after window advance or commit, else clear slot

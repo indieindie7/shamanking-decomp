@@ -83,3 +83,56 @@
 0x800d199c func story_MemcardFormatTask hand handles card status cases (new card, unformatted) with message states, clears flags
 0x800d1f04 func story_RetryYesNoTask hand yes/no prompt toggled by left/right with cross confirm, then continues or retries
 0x800d2244 func story_LoadingCardTask hand loads SELECT\LOADING.XAP image, shows loading, loads STORY\STCARD.XAP, then goes to retry task
+0x800cbb08 func story_CountLoopStub hand provisional empty counting loop 1..0x14 split off a delay task, no side effects
+0x800ccdb0 func script_OpWaitFrames hand script op: first call loads timer from operand, then counts down per frame, returns 1 when zero
+0x800cce08 func script_OpWaitFramesInit hand split fragment: stores v0 halfword to timer variable near 0x800bf63e, returns 0
+0x800ccee4 func script_OpJumpByIndex hand script op: scans jump-entries (type 0x61) for operand index, sets script pointer from table
+0x800ccf84 func stub_800ccf84 hand script op that only returns 1 (nop)
+0x800ccf8c func stub_800ccf8c hand script op that only returns 1 (nop)
+0x800ccf94 func script_OpConditionalJump hand script op: evaluates chained compares (codes 0xfff0-0xfff7 eq/ne/le/ge/lt/gt/and/bit) with and/or links, jumps if true
+0x800cd260 func script_OpConditionalJumpLoop hand split loop body of script_OpConditionalJump using register-held state, same compare switch
+0x800cd280 func script_OpJumpIfZero hand script op: if result variable *DAT_800bf634 is zero, set script pointer from jump table by operand
+0x800cd2d4 func script_OpCallSub hand script op: pushes return pointer on call stack DAT_800bf638, jumps to table entry, copies args to script vars
+0x800cd38c func script_OpReturn hand script op: pops call stack DAT_800bf638 into script pointer
+0x800cd3f0 func script_OpStoreCacheSlot hand split tail of script_OpResetXapCache: stores operand into DAT_800bf659
+0x800cd664 func script_OpHideSlotSprite hand script op: clears active byte +0x21 of image slot object indexed by operand
+0x800cd68c func script_OpStartSlotTween hand provisional script op: clears +0x20, sets +0x24 and +0x1e from operand, flags +0x23 dirty on slot object
+0x800cd744 func script_OpWaitSlotsIdle hand script op: returns 0 while either of two slot objects at 0x800bf640 has dirty byte +0x23, else 1
+0x800cd770 func script_OpWaitSlotsIdleTail hand split loop tail of script_OpWaitSlotsIdle checking second slot dirty byte
+0x800cd784 func script_OpSetSlotDuration hand script op: slot object +0x2c = operand<<12 / 1000 (milliseconds to seconds fixed point)
+0x800cd7d4 func script_OpSetSlotPosX hand provisional script op: writes operand to slot object +0x26 and +0x18 (x position/target)
+0x800cdba4 func script_OpHidePortrait hand script op: clears byte +0x22 of portrait object indexed by operand (table 0x800bf648)
+0x800cdd4c func script_OpSetPortraitColor hand provisional script op: stores operand byte into portrait object +0x21
+0x800cde68 func script_OpWaitPortraitsIdle hand script op: returns 0 while either portrait object has dirty byte +0x23, else 2
+0x800cde94 func script_OpWaitPortraitsIdleTail hand split loop tail of script_OpWaitPortraitsIdle checking second portrait
+0x800cdea8 func script_OpShowText hand script op: on first call clears text-done byte and sets text pointer from string table, returns 2 when finished
+0x800cded0 func script_OpShowTextTail hand split tail of script_OpShowText: sets text pointer from table, clears done flag
+0x800cdf2c func script_OpSetTextWindowParam hand provisional script op: stores operand byte to DAT_800bf656
+0x800cdf44 func script_OpTextModeNormal hand provisional script op: sets text mode bytes bf655=1 bf656=1 and clears bf658 to 0xff
+0x800cdf6c func script_OpTextModeAlt hand provisional script op: sets text mode byte bf655=4 and bf658=0xff
+0x800cdf8c func script_OpClearTextPointer hand script op: zeroes text pointer _DAT_800bf650
+0x800cdf9c func script_OpYesNoChoiceHead hand split head of script_OpYesNoChoice: pad 0x1000/0x4000 toggle, 0x20 confirm plays sfx, draws cursor poly
+0x800ce0a4 func script_OpSetVoiceId hand provisional script op: stores operand to DAT_800bf658 (voice/speaker id)
+0x800ce0bc func script_OpClearVoiceId hand provisional script op: resets DAT_800bf658 to 0xff
+0x800ce0d0 func script_OpSetVoiceIdTail hand provisional split copy of script_OpSetVoiceId storing operand to DAT_800bf658
+0x800ce188 func script_OpSetFadeDirection hand provisional script op: swaps fade state byte DAT_800bf721 between 2 and 4 by operand
+0x800ce228 func story_IsFadeDone hand returns whether fade state byte DAT_800bf721 is zero
+0x800ce4bc func script_OpSetVoiceVolume hand script op: operand*volume setting*256/5 passed to snd_SetVoiceVolume voice 0x11 both channels
+0x800ce540 func script_OpWaitPadFlag hand provisional returns 2 when DAT_800bf3d5 is zero else 0
+0x800ceb4c func script_OpFadeStoreOperandA hand provisional fade-to-color operand store: DAT_800bf65c = operand
+0x800ceb64 func script_OpFadeStoreOperandB hand provisional fade-to-color operand store: DAT_800bf65b = operand
+0x800ceb7c func script_OpFadeStoreOperandC hand provisional fade-to-color operand store: DAT_800bf65e = operand
+0x800ceb94 func script_OpFadeStoreOperandD hand provisional fade-to-color operand store: DAT_800bf65d = operand
+0x800ced78 func script_OpSetStoryFlagBit hand split tail of script_OpSetStoryFlag: ORs 1<<operand into flags _DAT_800a3d88
+0x800ceda4 func script_OpSetUnlockBit hand provisional script op: ORs 1<<(operand-1) into bit mask _DAT_800a3d84
+0x800cedd4 func script_OpGetUnlockMask hand provisional script op: writes bit mask _DAT_800a3d84 into result variable +2
+0x800cedf4 func script_OpSetSelectBase hand provisional script op: stores operand to DAT_800bf661
+0x800cee0c func script_OpAddStatA hand provisional script op: adds operand*0x100 to stat word _DAT_800bf664
+0x800cee30 func script_OpAddStatB hand provisional script op: adds operand*0x100 to stat word _DAT_800bf668
+0x800cee54 func script_OpAddStatC hand provisional script op: adds operand*0x100 to stat word _DAT_800bf66c
+0x800cee78 func script_OpAddStatD hand provisional script op: adds operand*0x100 to stat word _DAT_800bf670
+0x800cee9c func script_OpGetSelectBase hand provisional script op: writes DAT_800bf661 into result variable +2
+0x800cefc8 func script_OpReadPadDirection hand script op: pad 0x20 -> result 0, 0x1000 -> 1, 0x4000 -> 2; returns 1 if a button matched
+0x800cf01c func script_OpSetResultOne hand script op: sets result variable +2 to 1
+0x800cf034 func script_OpSetResultTwo hand script op: sets result variable +2 to 2
+0x800cf04c func stub_800cf04c hand empty function, returns immediately
